@@ -63,6 +63,12 @@ function safeExec() {
   // Initialize Boedoxol Stacked Sticky Cards Effect
   initStackedCards();
 
+  // Initialize Rich GSAP Page Animations on Inner Pages
+  initPageAnimations();
+
+  // Initialize Mobile Navigation Toggle
+  initMobileNav();
+
   try {
     if (typeof window.runLoader === 'function') {
       window.runLoader().then(() => {
@@ -91,6 +97,101 @@ function safeExec() {
       ScrollTrigger.refresh();
     }, 200);
   }
+}
+
+/**
+ * GSAP ScrollTrigger Animations across all website pages
+ */
+function initPageAnimations() {
+  // Heading & Subtitle Reveals
+  const revealHeadings = document.querySelectorAll('.page-reveal-heading');
+  revealHeadings.forEach((el) => {
+    gsap.fromTo(el,
+      { opacity: 0, y: 35 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.85,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 85%',
+          toggleActions: 'play none none none'
+        }
+      }
+    );
+  });
+
+  // Staggered Cards Reveal (Cards, Features, Grids)
+  const staggerContainers = document.querySelectorAll('[data-stagger-cards]');
+  staggerContainers.forEach((container) => {
+    const items = container.querySelectorAll('.stagger-card-item');
+    if (items.length) {
+      gsap.fromTo(items,
+        { opacity: 0, y: 45, scale: 0.96 },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 0.75,
+          stagger: 0.12,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: container,
+            start: 'top 82%',
+            toggleActions: 'play none none none'
+          }
+        }
+      );
+    }
+  });
+
+  // Smooth Reveal for Colored Photographic Elements
+  const revealImages = document.querySelectorAll('.page-reveal-img');
+  revealImages.forEach((img) => {
+    gsap.fromTo(img,
+      { opacity: 0, scale: 0.94 },
+      {
+        opacity: 1,
+        scale: 1,
+        duration: 1,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: img,
+          start: 'top 85%',
+          toggleActions: 'play none none none'
+        }
+      }
+    );
+  });
+}
+
+/**
+ * Mobile Navigation Menu Handler
+ */
+function initMobileNav() {
+  const toggleBtn = document.getElementById('mobile-toggle');
+  const mobileMenu = document.querySelector('.mobile_menu');
+  if (!toggleBtn || !mobileMenu) return;
+
+  toggleBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isOpen = mobileMenu.style.display === 'block';
+    if (isOpen) {
+      mobileMenu.style.display = 'none';
+      mobileMenu.style.opacity = '0';
+    } else {
+      mobileMenu.style.display = 'block';
+      mobileMenu.style.opacity = '1';
+    }
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!toggleBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
+      mobileMenu.style.display = 'none';
+      mobileMenu.style.opacity = '0';
+    }
+  });
 }
 
 if (document.readyState === 'loading') {
