@@ -1,0 +1,470 @@
+/* ============================================================
+   STALWART GROUP — ULTRA-MODERN CINEMATIC HERO SEQUENCE
+   - Background: hero_bg.png architectural slate panels
+   - Typography: Chronicle metallic chrome gradients & monochrome silver
+   - Margins: Editorial generous negative space & precise alignment
+   - Logo: Continuous 3D floating movement & interactive tilt
+   - 100% smooth, glitch-free GSAP ScrollTrigger pinning
+   ============================================================ */
+
+:root {
+  --color-bg: #050505;
+  --color-text-white: #FFFFFF;
+  --color-text-silver: #E2E2E2;
+  --color-text-body: #9E9E9E;
+  --color-text-muted: #707070;
+  --color-border: rgba(255, 255, 255, 0.15);
+  --font-display: 'Montserrat', 'Syne', sans-serif;
+  --font-body: 'Montserrat', 'Inter', sans-serif;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-bg);
+  color: var(--color-text-white);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  background: #050505;
+}
+
+/* ── Chronicle Metallic Gradient Effect ────────────────────── */
+.text-chronicle {
+  background: linear-gradient(
+    180deg,
+    #FFFFFF 0%,
+    #E0E0E0 35%,
+    #8E8E8E 75%,
+    #4E4E4E 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+  filter: drop-shadow(0 2px 25px rgba(0, 0, 0, 0.95));
+}
+
+/* ── Outer Scroll Track ───────────────────────────────────── */
+.hero-scroll-container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #050505;
+}
+
+/* ── Pinned 100vh Viewport Stage ──────────────────────────── */
+.hero-viewport {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #050505;
+}
+
+/* ── Background Architectural Slate Panels (hero_bg.png) ──── */
+.hero-slate-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: url('../hero_bg.png') center/cover no-repeat;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 1;
+  will-change: opacity;
+  transform: scale(1.02);
+  transition: transform 0.8s ease;
+}
+
+/* Subtle dark vignette overlay */
+.hero-slate-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(5, 5, 5, 0.2) 0%, rgba(5, 5, 5, 0.75) 100%);
+  pointer-events: none;
+}
+
+/* ── Transparent Modern Site Header ───────────────────────── */
+.site-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 90px;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 clamp(36px, 6vw, 100px);
+  box-sizing: border-box;
+  background: transparent;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-20px);
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.nav-brand-text {
+  font-family: var(--font-display);
+  font-size: clamp(1.05rem, 1.3vw, 1.25rem);
+  font-weight: 800;
+  letter-spacing: 0.24em;
+  color: var(--color-text-white);
+  text-transform: uppercase;
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: clamp(18px, 2.2vw, 36px);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-link {
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  color: #A8A8A8;
+  text-transform: uppercase;
+  text-decoration: none;
+  position: relative;
+  padding: 8px 0;
+  display: inline-block;
+  transition: color 0.25s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: #FFFFFF;
+}
+
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #FFFFFF;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+}
+
+/* ── The Main Lion Stage (The central actor) ──────────────── */
+.lion-stage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 30;
+  width: clamp(360px, 42vw, 560px);
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  will-change: transform, opacity;
+  perspective: 1200px;
+}
+
+.lion-floating-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.main-lion-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  filter: 
+    drop-shadow(0 25px 50px rgba(0, 0, 0, 0.98))
+    drop-shadow(0 0 70px rgba(212, 175, 55, 0.22));
+}
+
+.lion-ambient-aura {
+  position: absolute;
+  inset: -12%;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at center,
+    rgba(212, 175, 55, 0.18) 0%,
+    rgba(184, 148, 46, 0.04) 50%,
+    transparent 70%
+  );
+  filter: blur(45px);
+  pointer-events: none;
+}
+
+/* ── Stage 02: Central STALWART GROUP Branding Reveal ─────── */
+.branding-stage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 20;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  pointer-events: none;
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+.branding-text-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.branding-title {
+  font-family: var(--font-display);
+  font-size: clamp(3.8rem, 9.5vw, 9.2rem);
+  font-weight: 800;
+  line-height: 0.92;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
+}
+
+.branding-subtitle {
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 2vw, 1.85rem);
+  font-weight: 300;
+  letter-spacing: 0.85em;
+  text-indent: 0.85em; /* Mathematically center extreme tracking */
+  color: #E0E0E0;
+  text-transform: uppercase;
+  margin-top: clamp(14px, 2vw, 28px);
+  opacity: 0.95;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.95);
+}
+
+/* ── Stage 03: Final Hero Content Stage (Left Column) ─────── */
+.hero-content-stage {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  transform: translateY(-50%);
+  z-index: 25;
+  padding: 0 clamp(40px, 6vw, 100px);
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  pointer-events: none;
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+.hero-text-container {
+  max-width: 580px;
+  pointer-events: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  color: #DCDCDC;
+  text-transform: uppercase;
+  margin-bottom: 22px;
+}
+
+.hero-tag-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+}
+
+.hero-main-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 5vw, 5.2rem);
+  font-weight: 800;
+  line-height: 0.98;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  margin: 0 0 16px 0;
+}
+
+.hero-sub-title {
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 1.5vw, 1.45rem);
+  font-weight: 500;
+  line-height: 1.35;
+  letter-spacing: 0.12em;
+  color: #CCCCCC;
+  text-transform: uppercase;
+  margin: 0 0 24px 0;
+}
+
+.hero-description {
+  font-family: var(--font-body);
+  font-size: clamp(0.95rem, 1.1vw, 1.05rem);
+  font-weight: 400;
+  line-height: 1.7;
+  color: #9E9E9E;
+  margin: 0;
+  max-width: 520px;
+  border-left: 1.5px solid rgba(255, 255, 255, 0.22);
+  padding-left: 20px;
+}
+
+/* ── Subtle Scroll Cue Pill (Stage 01) ────────────────────── */
+.scroll-cue {
+  position: absolute;
+  bottom: 34px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  z-index: 40;
+  pointer-events: none;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.scroll-cue-text {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  color: #7E7E7E;
+  text-transform: uppercase;
+}
+
+.scroll-cue-pill {
+  width: 22px;
+  height: 36px;
+  border-radius: 12px;
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  justify-content: center;
+  padding-top: 6px;
+  box-sizing: border-box;
+}
+
+.scroll-cue-dot {
+  width: 4px;
+  height: 8px;
+  border-radius: 2px;
+  background-color: #FFFFFF;
+  animation: scrollCueBounce 2s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+
+@keyframes scrollCueBounce {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  60% {
+    transform: translateY(12px);
+    opacity: 0.2;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* ── Responsive Compositions ──────────────────────────────── */
+@media (max-width: 1024px) {
+  .site-header {
+    height: 72px;
+    padding: 0 32px;
+  }
+
+  .site-nav {
+    display: none;
+  }
+
+  .lion-stage {
+    width: clamp(300px, 42vw, 460px);
+  }
+
+  .hero-content-stage {
+    padding: 0 32px;
+  }
+
+  .hero-main-title {
+    font-size: clamp(2.2rem, 4.2vw, 3.8rem);
+  }
+}
+
+/* Mobile: Vertical editorial stack */
+@media (max-width: 768px) {
+  .hero-content-stage {
+    top: 56%;
+    padding: 0 24px;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .hero-text-container {
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero-description {
+    border-left: none;
+    padding-left: 0;
+  }
+
+  .lion-stage {
+    width: clamp(200px, 44vw, 320px);
+  }
+
+  .branding-title {
+    font-size: clamp(2.8rem, 12vw, 4.5rem);
+    letter-spacing: 0.12em;
+  }
+
+  .branding-subtitle {
+    font-size: 0.9rem;
+    letter-spacing: 0.55em;
+    text-indent: 0.55em;
+  }
+}

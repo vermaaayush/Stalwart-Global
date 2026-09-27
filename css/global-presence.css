@@ -1,0 +1,180 @@
+/* ============================================================
+   STALWART GROUP — SECTION 08: GLOBAL PRESENCE
+   Interactive Geospatial Map & 7 Key Market Hubs:
+   India, China, Myanmar, Sri Lanka, Cambodia, Thailand, Australia
+   ============================================================ */
+
+.section-presence {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  background-color: var(--color-bg, #050505);
+  border-top: 1px solid var(--color-border-subtle, #151515);
+  padding: 140px 0;
+  overflow: hidden;
+}
+
+.presence-container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: var(--container-max, 1360px);
+  margin: 0 auto;
+  padding: 0 var(--container-pad, 32px);
+}
+
+.presence-header {
+  margin-bottom: var(--space-xl, 48px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--color-border-subtle, #151515);
+  padding-bottom: var(--space-md, 20px);
+}
+
+.presence-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: var(--fs-xs, 0.75rem);
+  letter-spacing: var(--ls-ultra-wide, 0.2em);
+  color: var(--color-text-muted, #777777);
+  text-transform: uppercase;
+}
+
+.presence-label-num {
+  color: var(--color-gold, #C5A55A);
+  font-weight: 600;
+}
+
+.presence-label-line {
+  width: 32px;
+  height: 1px;
+  background-color: var(--color-border-light, #222222);
+}
+
+.presence-title {
+  font-family: var(--font-display, 'Montserrat', 'Syne', sans-serif);
+  font-size: clamp(2.4rem, 5vw, 4.8rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin: 0 0 var(--space-sm, 16px) 0;
+}
+
+.presence-lead {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: clamp(0.95rem, 1.25vw, 1.15rem);
+  font-weight: 300;
+  line-height: 1.7;
+  color: var(--color-text-secondary, #E8E8E8);
+  max-width: 720px;
+  margin-bottom: var(--space-xl, 48px);
+}
+
+/* Map & Hubs Grid */
+.presence-stage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 8.5;
+  background: #080808;
+  border: 1px solid var(--color-border-light, #222222);
+  border-radius: 2px;
+  overflow: hidden;
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.95);
+  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.presence-svg-map {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+}
+
+/* Gold Map Pin Nodes */
+.map-node {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.map-node-pulse {
+  animation: nodePulse 2.5s infinite;
+  transform-origin: center;
+}
+
+@keyframes nodePulse {
+  0% { r: 6px; opacity: 0.8; }
+  50% { r: 16px; opacity: 0; }
+  100% { r: 6px; opacity: 0; }
+}
+
+.map-node:hover circle.core-dot {
+  fill: #FFFFFF;
+  filter: drop-shadow(0 0 8px #FFFFFF);
+}
+
+/* 7 Country Hub Cards Below Map */
+.presence-hubs-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 12px;
+}
+
+.presence-hub-card {
+  padding: 16px 12px;
+  background: rgba(12, 12, 12, 0.6);
+  border: 1px solid var(--color-border-subtle, #151515);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.presence-hub-card.is-active,
+.presence-hub-card:hover {
+  background: rgba(20, 20, 20, 0.9);
+  border-color: rgba(212, 175, 55, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.8), 0 0 14px rgba(212, 175, 55, 0.1);
+}
+
+.presence-hub-country {
+  font-family: var(--font-display, 'Montserrat', 'Syne', sans-serif);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--color-text-primary, #FFFFFF);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.presence-hub-card.is-active .presence-hub-country {
+  color: var(--color-gold, #C5A55A);
+}
+
+.presence-hub-role {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 0.6875rem;
+  line-height: 1.4;
+  color: var(--color-text-muted, #777777);
+  margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .presence-hubs-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .presence-stage {
+    aspect-ratio: 16 / 10;
+  }
+}
+
+@media (max-width: 640px) {
+  .presence-hubs-grid {
+    grid-template-columns: 1fr;
+  }
+}

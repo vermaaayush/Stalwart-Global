@@ -1,0 +1,234 @@
+/* ============================================================
+   STALWART GROUP — INTRO SPLASH SCREEN
+   Centered gold lion shield breathing, ambient atmospheric glow,
+   and compact responsive layout for all viewport heights (>= 500px).
+   ============================================================ */
+
+#splash-screen {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--color-bg, #050505);
+  z-index: var(--z-splash, 9999);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  user-select: none;
+  cursor: pointer;
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#splash-screen.is-hidden {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+/* Subtle background vignette and architectural ambient shading */
+#splash-screen::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at center,
+    rgba(25, 23, 18, 0.5) 0%,
+    rgba(5, 5, 5, 0.9) 65%,
+    #050505 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Subtle architectural panel grid lines in background */
+.splash-grid-lines {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: space-around;
+  pointer-events: none;
+  opacity: 0.25;
+  z-index: 1;
+}
+
+.splash-grid-col {
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.08) 30%,
+    rgba(212, 175, 55, 0.12) 50%,
+    rgba(255, 255, 255, 0.08) 70%,
+    transparent 100%
+  );
+}
+
+/* Splash content container — compact to fit comfortably inside 650px viewports */
+.splash-container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  max-width: 600px;
+  padding: 16px;
+  gap: clamp(10px, 2.5vh, 20px);
+}
+
+/* Logo wrapper — visible by default, sized responsively to height */
+.splash-logo-wrapper {
+  position: relative;
+  width: clamp(130px, 26vh, 200px);
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  transform: scale(1);
+  margin: 0 auto;
+}
+
+/* Ambient glow backdrop behind the lion */
+.splash-logo-glow {
+  position: absolute;
+  inset: -20%;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at center,
+    rgba(212, 175, 55, 0.28) 0%,
+    rgba(197, 165, 90, 0.09) 50%,
+    transparent 72%
+  );
+  filter: blur(25px);
+  opacity: 0.75;
+  pointer-events: none;
+}
+
+/* The 3D Gold Lion Shield Emblem */
+.splash-logo-emblem {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.95)) drop-shadow(0 0 45px rgba(212, 175, 55, 0.35));
+}
+
+.splash-logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* Corporate wordmark below logo */
+.splash-brand-mark {
+  opacity: 1;
+  margin: 0;
+}
+
+.splash-brand-title {
+  font-family: var(--font-display, 'Montserrat', 'Syne', sans-serif);
+  font-size: clamp(1.2rem, 3.5vh, 1.8rem);
+  font-weight: var(--fw-bold, 700);
+  letter-spacing: var(--ls-ultra-wide, 0.2em);
+  color: var(--color-text-primary, #FFFFFF);
+  text-transform: uppercase;
+}
+
+.splash-brand-subtitle {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 0.6875rem;
+  font-weight: var(--fw-light, 300);
+  letter-spacing: var(--ls-extreme, 0.35em);
+  color: var(--color-text-muted, #777777);
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+/* ENTER Action Section */
+.splash-enter-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  opacity: 1;
+  margin-top: 4px;
+}
+
+/* Fine gold accent line */
+.enter-divider {
+  width: 44px;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--color-gold, #C5A55A) 50%,
+    transparent 100%
+  );
+  opacity: 0.7;
+}
+
+/* ENTER Button */
+.splash-enter-btn {
+  background: transparent;
+  border: 1px solid rgba(212, 175, 55, 0.5);
+  padding: 8px 30px;
+  border-radius: 0;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  box-shadow: 0 0 16px rgba(212, 175, 55, 0.2);
+}
+
+.splash-enter-btn:hover {
+  border-color: var(--color-gold, #C5A55A);
+  box-shadow: 0 0 24px rgba(212, 175, 55, 0.4);
+  transform: translateY(-1px);
+}
+
+.splash-enter-text {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.35em;
+  color: var(--color-text-primary, #FFFFFF);
+  text-transform: uppercase;
+  position: relative;
+  z-index: 1;
+}
+
+/* Helper text / hint */
+.splash-hint {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 0.625rem; /* 10px */
+  font-weight: 400;
+  letter-spacing: 0.25em;
+  color: var(--color-text-subtle, #555555);
+  text-transform: uppercase;
+  margin-top: 2px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.splash-hint-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: var(--color-gold, #C5A55A);
+  opacity: 0.8;
+  display: inline-block;
+}

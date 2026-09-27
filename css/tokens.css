@@ -1,0 +1,131 @@
+/* ============================================================
+   STALWART GROUP — DESIGN TOKENS
+   The single source of truth for all visual values.
+   ============================================================ */
+
+:root {
+  /* ── COLORS: Backgrounds ─────────────────────────────────── */
+  --color-bg:            #050505;
+  --color-bg-panel-1:    #080808;
+  --color-bg-panel-2:    #0A0A0A;
+  --color-bg-panel-3:    #0C0C0C;
+  --color-bg-panel-4:    #0E0E0E;
+  --color-bg-card:       #111111;
+  --color-bg-elevated:   #141414;
+  --color-bg-overlay:    rgba(5, 5, 5, 0.92);
+
+  /* ── COLORS: Borders & Separators ────────────────────────── */
+  --color-border:        #1A1A1A;
+  --color-border-light:  #222222;
+  --color-border-subtle: #151515;
+  --color-separator:     #1C1C1C;
+
+  /* ── COLORS: Text (White & Grey ONLY) ────────────────────── */
+  --color-text-primary:    #FFFFFF;
+  --color-text-secondary:  #E8E8E8;
+  --color-text-body:       #AAAAAA;
+  --color-text-muted:      #777777;
+  --color-text-subtle:     #555555;
+  --color-text-dark:       #333333;
+
+  /* ── COLORS: Gold (Lion Logo & Restrained Accents ONLY) ─── */
+  --color-gold:          #C5A55A;
+  --color-gold-light:    #D4AF37;
+  --color-gold-dark:     #B8942E;
+  --color-gold-muted:    #9A7B3C;
+  --color-gold-glow:     rgba(212, 175, 55, 0.15);
+  --color-gold-glow-strong: rgba(212, 175, 55, 0.3);
+
+  /* ── COLORS: Chronicle Text Shade Effect ─────────────────── */
+  --gradient-chronicle:  linear-gradient(
+    180deg,
+    #FFFFFF 0%,
+    #D0D0D0 40%,
+    #999999 100%
+  );
+  --gradient-chronicle-strong: linear-gradient(
+    180deg,
+    #FFFFFF 0%,
+    #BBBBBB 50%,
+    #777777 100%
+  );
+  --shadow-chronicle:    0 2px 40px rgba(255, 255, 255, 0.04);
+
+  /* ── TYPOGRAPHY: Font Families ───────────────────────────── */
+  --font-display:  'Montserrat', 'Syne', -apple-system, sans-serif;
+  --font-body:     'Montserrat', 'Inter', -apple-system, sans-serif;
+
+  /* ── TYPOGRAPHY: Size Scale ──────────────────────────────── */
+  --fs-xs:       0.75rem;     /* 12px  — metadata, counters */
+  --fs-sm:       0.8125rem;   /* 13px  — small labels */
+  --fs-base:     0.9375rem;   /* 15px  — body copy */
+  --fs-md:       1.125rem;    /* 18px  — large body */
+  --fs-lg:       1.5rem;      /* 24px  — sub-headings */
+  --fs-xl:       2.25rem;     /* 36px  — section titles */
+  --fs-2xl:      3.5rem;      /* 56px  — large headings */
+  --fs-3xl:      5rem;        /* 80px  — hero sub-elements */
+  --fs-display:  8vw;         /* ~120px+ — STALWART hero */
+  --fs-display-sm: 6vw;       /* smaller display fallback */
+
+  /* ── TYPOGRAPHY: Font Weights ────────────────────────────── */
+  --fw-light:    300;
+  --fw-regular:  400;
+  --fw-medium:   500;
+  --fw-semibold: 600;
+  --fw-bold:     700;
+  --fw-black:    900;
+
+  /* ── TYPOGRAPHY: Line Heights ────────────────────────────── */
+  --lh-tight:    1.0;
+  --lh-snug:     1.15;
+  --lh-normal:   1.5;
+  --lh-relaxed:  1.75;
+
+  /* ── TYPOGRAPHY: Letter Spacing ──────────────────────────── */
+  --ls-tight:       -0.02em;
+  --ls-normal:       0em;
+  --ls-wide:         0.08em;
+  --ls-wider:        0.15em;
+  --ls-ultra-wide:   0.35em;
+  --ls-extreme:      0.5em;
+
+  /* ── SPACING: Scale ─────────────────────────────────────── */
+  --space-3xs:   0.25rem;   /* 4px */
+  --space-2xs:   0.5rem;    /* 8px */
+  --space-xs:    0.75rem;   /* 12px */
+  --space-sm:    1rem;      /* 16px */
+  --space-md:    1.5rem;    /* 24px */
+  --space-lg:    2.5rem;    /* 40px */
+  --space-xl:    4rem;      /* 64px */
+  --space-2xl:   6rem;      /* 96px */
+  --space-3xl:   10rem;     /* 160px */
+
+  /* ── LAYOUT ─────────────────────────────────────────────── */
+  --container-max:   1440px;
+  --container-pad:   clamp(1.5rem, 4vw, 4rem);
+  --section-pad-y:   clamp(5rem, 12vh, 10rem);
+
+  /* ── EASING ─────────────────────────────────────────────── */
+  --ease-smooth:     cubic-bezier(0.25, 0.1, 0.25, 1.0);
+  --ease-cinematic:  cubic-bezier(0.76, 0, 0.24, 1);
+  --ease-out-expo:   cubic-bezier(0.19, 1, 0.22, 1);
+
+  /* ── TRANSITIONS ────────────────────────────────────────── */
+  --transition-fast:   0.2s var(--ease-smooth);
+  --transition-normal: 0.4s var(--ease-smooth);
+  --transition-slow:   0.8s var(--ease-cinematic);
+  --transition-reveal:  1.2s var(--ease-out-expo);
+
+  /* ── Z-INDEX LAYERS ─────────────────────────────────────── */
+  --z-base:      1;
+  --z-content:   10;
+  --z-header:    100;
+  --z-overlay:   500;
+  --z-splash:    1000;
+  --z-cursor:    9999;
+
+  /* ── BORDERS ────────────────────────────────────────────── */
+  --border-thin:   1px solid var(--color-border);
+  --border-subtle: 1px solid var(--color-border-subtle);
+  --border-gold:   1px solid var(--color-gold-muted);
+}

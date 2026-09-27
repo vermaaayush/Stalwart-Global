@@ -1,0 +1,245 @@
+/* ============================================================
+   STALWART GROUP — SECTION 02: MORE THAN TRADING
+   Oversized editorial typography, pinned ScrollTrigger sequence,
+   and sequential reveal of the 5 core operational verbs.
+   ============================================================ */
+
+.section-trading {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  background-color: var(--color-bg);
+  border-top: 1px solid var(--color-border-subtle);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 0;
+}
+
+/* Subtle architectural panel dividers */
+.trading-panels {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.trading-panel-col {
+  border-right: 1px solid rgba(255, 255, 255, 0.025);
+  height: 100%;
+}
+
+.trading-panel-col:last-child {
+  border-right: none;
+}
+
+/* Deep atmospheric background glow on left/right */
+.trading-ambient-glow {
+  position: absolute;
+  top: 20%;
+  left: -10%;
+  width: 50vw;
+  height: 50vw;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 255, 255, 0.02) 0%,
+    transparent 65%
+  );
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.trading-container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-pad);
+}
+
+/* Section Header Meta */
+.trading-header {
+  margin-bottom: var(--space-xl);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--color-border-subtle);
+  padding-bottom: var(--space-md);
+}
+
+.trading-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-body);
+  font-size: var(--fs-xs);
+  letter-spacing: var(--ls-ultra-wide);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+}
+
+.trading-label-num {
+  color: var(--color-gold);
+  font-weight: var(--fw-semibold);
+}
+
+.trading-label-line {
+  width: 32px;
+  height: 1px;
+  background-color: var(--color-border-light);
+}
+
+.trading-category {
+  font-family: var(--font-body);
+  font-size: var(--fs-xs);
+  letter-spacing: var(--ls-extreme);
+  color: var(--color-text-subtle);
+  text-transform: uppercase;
+}
+
+/* Main Display Headline */
+.trading-headline-wrap {
+  margin-bottom: var(--space-2xl);
+}
+
+.trading-headline {
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 6.5vw, 6.2rem);
+  font-weight: var(--fw-bold);
+  line-height: 1.05;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin: 0;
+  max-width: 1100px;
+}
+
+/* Supporting Narrative Statement */
+.trading-lead {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 1.6vw, 1.35rem);
+  font-weight: var(--fw-light);
+  line-height: 1.7;
+  color: var(--color-text-secondary);
+  max-width: 760px;
+  margin-bottom: var(--space-2xl);
+  letter-spacing: var(--ls-wide);
+}
+
+/* 5 Operational Verbs Interactive Sequence Grid */
+.trading-verbs-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--space-md);
+  margin-top: var(--space-xl);
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--space-lg);
+}
+
+.trading-verb-card {
+  position: relative;
+  padding: var(--space-md) var(--space-sm);
+  background: rgba(10, 10, 10, 0.4);
+  border: 1px solid var(--color-border-subtle);
+  transition: all var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 190px;
+  opacity: 0.35;
+  transform: translateY(20px);
+}
+
+.trading-verb-card.is-active,
+.trading-verb-card:hover {
+  opacity: 1;
+  transform: translateY(0);
+  border-color: rgba(212, 175, 55, 0.4);
+  background: rgba(18, 18, 18, 0.7);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 20px rgba(212, 175, 55, 0.08);
+}
+
+.trading-verb-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.trading-verb-index {
+  font-family: var(--font-body);
+  font-size: var(--fs-xs);
+  letter-spacing: var(--ls-wider);
+  color: var(--color-text-subtle);
+  transition: color var(--transition-fast);
+}
+
+.trading-verb-card.is-active .trading-verb-index,
+.trading-verb-card:hover .trading-verb-index {
+  color: var(--color-gold);
+}
+
+.trading-verb-indicator {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: var(--color-border-light);
+  transition: all var(--transition-fast);
+}
+
+.trading-verb-card.is-active .trading-verb-indicator,
+.trading-verb-card:hover .trading-verb-indicator {
+  background-color: var(--color-gold);
+  box-shadow: 0 0 8px var(--color-gold);
+}
+
+.trading-verb-name {
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 1.8vw, 1.6rem);
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--ls-wide);
+  color: var(--color-text-primary);
+  text-transform: uppercase;
+  margin: var(--space-sm) 0 var(--space-xs) 0;
+  transition: color var(--transition-fast);
+}
+
+.trading-verb-desc {
+  font-family: var(--font-body);
+  font-size: var(--fs-xs);
+  line-height: 1.5;
+  color: var(--color-text-muted);
+  margin: 0;
+  transition: color var(--transition-fast);
+}
+
+.trading-verb-card.is-active .trading-verb-desc,
+.trading-verb-card:hover .trading-verb-desc {
+  color: var(--color-text-secondary);
+}
+
+/* ── Responsive Adaptations ───────────────────────────────── */
+@media (max-width: 1024px) {
+  .trading-verbs-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-sm);
+  }
+  
+  .trading-verb-card:last-child {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 640px) {
+  .trading-verbs-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .trading-verb-card:last-child {
+    grid-column: span 1;
+  }
+}

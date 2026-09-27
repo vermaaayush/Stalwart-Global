@@ -1,0 +1,206 @@
+/* ============================================================
+   STALWART GROUP — TYPOGRAPHY
+   Font faces, type scale classes, and chronicle text effects.
+   ============================================================ */
+
+/* ── Google Fonts Import ──────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+
+/* ============================================================
+   HEADING CLASSES
+   ============================================================ */
+
+/* Display — STALWART hero, massive statements */
+.text-display {
+  font-family: var(--font-display);
+  font-size: var(--fs-display);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  color: var(--color-text-primary);
+}
+
+/* Heading 1 — Main section headings */
+.text-h1 {
+  font-family: var(--font-display);
+  font-size: var(--fs-2xl);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  color: var(--color-text-primary);
+}
+
+/* Heading 2 — Sub-section headings */
+.text-h2 {
+  font-family: var(--font-display);
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  color: var(--color-text-primary);
+}
+
+/* Heading 3 — Card/panel headings */
+.text-h3 {
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--ls-normal);
+  color: var(--color-text-primary);
+}
+
+/* Subtitle — GROUP, secondary headings */
+.text-subtitle {
+  font-family: var(--font-body);
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-light);
+  line-height: var(--lh-normal);
+  letter-spacing: var(--ls-extreme);
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+}
+
+/* Body — Main paragraph text */
+.text-body {
+  font-family: var(--font-body);
+  font-size: var(--fs-base);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-relaxed);
+  color: var(--color-text-body);
+}
+
+/* Body large — Prominent paragraphs */
+.text-body-lg {
+  font-family: var(--font-body);
+  font-size: var(--fs-md);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-relaxed);
+  color: var(--color-text-body);
+}
+
+/* Label — Small uppercase labels */
+.text-label {
+  font-family: var(--font-body);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--ls-ultra-wide);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+/* Meta — Tiny metadata, counters, numbers */
+.text-meta {
+  font-family: var(--font-body);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-regular);
+  letter-spacing: var(--ls-wider);
+  color: var(--color-text-subtle);
+}
+
+/* Caption — Image captions, footnotes */
+.text-caption {
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-normal);
+  color: var(--color-text-muted);
+}
+
+
+/* ============================================================
+   CHRONICLE TEXT EFFECT
+   The signature Stalwart look: white-to-grey gradient text
+   with subtle shadow giving cinematic depth.
+   ============================================================ */
+
+/* Standard chronicle shade — top-lit gradient */
+.text-chronicle {
+  background: var(--gradient-chronicle);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: none; /* override — shadow doesn't work with background-clip */
+  position: relative;
+}
+
+/* Stronger chronicle — more contrast, bolder fade */
+.text-chronicle-strong {
+  background: var(--gradient-chronicle-strong);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Chronicle with glow — for hero-level text */
+.text-chronicle-glow {
+  background: var(--gradient-chronicle);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 60px rgba(255, 255, 255, 0.03));
+}
+
+/* Gold text — used sparingly (navigation active state, counters) */
+.text-gold {
+  color: var(--color-gold);
+}
+
+
+/* ============================================================
+   KINETIC TYPOGRAPHY HELPERS
+   Used with SplitType for char/word/line reveals.
+   ============================================================ */
+
+/* Characters and words start hidden, revealed by GSAP */
+.split-text .char,
+.split-text .word,
+.split-text .line {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+
+/* Overflow wrapper for line-by-line reveals */
+.text-reveal-wrap {
+  overflow: hidden;
+  display: block;
+}
+
+.text-reveal-wrap > * {
+  display: block;
+  will-change: transform;
+}
+
+
+/* ============================================================
+   RESPONSIVE TYPOGRAPHY
+   ============================================================ */
+
+@media (max-width: 1280px) {
+  .text-display {
+    font-size: var(--fs-display-sm);
+  }
+  .text-h1 {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+  }
+}
+
+@media (max-width: 768px) {
+  .text-display {
+    font-size: clamp(2.5rem, 12vw, 5rem);
+  }
+  .text-h1 {
+    font-size: clamp(1.75rem, 6vw, 2.5rem);
+  }
+  .text-h2 {
+    font-size: clamp(1.25rem, 4vw, 2rem);
+  }
+  .text-subtitle {
+    font-size: var(--fs-base);
+    letter-spacing: var(--ls-ultra-wide);
+  }
+}

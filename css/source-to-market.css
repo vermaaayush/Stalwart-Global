@@ -1,0 +1,240 @@
+/* ============================================================
+   STALWART GROUP — SECTION 06: FROM SOURCE TO MARKET
+   7-Step visual value chain process:
+   SOURCE → PROCURE → TRADE → MOVE → DISTRIBUTE → OPERATE → SERVE
+   ============================================================ */
+
+.section-source-market {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  background-color: var(--color-bg, #050505);
+  border-top: 1px solid var(--color-border-subtle, #151515);
+  padding: 140px 0;
+  overflow: hidden;
+}
+
+.process-container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: var(--container-max, 1360px);
+  margin: 0 auto;
+  padding: 0 var(--container-pad, 32px);
+}
+
+/* Header */
+.process-header {
+  margin-bottom: var(--space-2xl, 64px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--color-border-subtle, #151515);
+  padding-bottom: var(--space-md, 20px);
+}
+
+.process-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: var(--fs-xs, 0.75rem);
+  letter-spacing: var(--ls-ultra-wide, 0.2em);
+  color: var(--color-text-muted, #777777);
+  text-transform: uppercase;
+}
+
+.process-label-num {
+  color: var(--color-gold, #C5A55A);
+  font-weight: 600;
+}
+
+.process-label-line {
+  width: 32px;
+  height: 1px;
+  background-color: var(--color-border-light, #222222);
+}
+
+.process-category {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: var(--fs-xs, 0.75rem);
+  letter-spacing: var(--ls-extreme, 0.35em);
+  color: var(--color-text-subtle, #555555);
+  text-transform: uppercase;
+}
+
+.process-title {
+  font-family: var(--font-display, 'Montserrat', 'Syne', sans-serif);
+  font-size: clamp(2.4rem, 5vw, 4.8rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin: 0 0 var(--space-sm, 16px) 0;
+}
+
+.process-lead {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: clamp(0.95rem, 1.25vw, 1.15rem);
+  font-weight: 300;
+  line-height: 1.7;
+  color: var(--color-text-secondary, #E8E8E8);
+  max-width: 720px;
+  margin-bottom: var(--space-2xl, 64px);
+  letter-spacing: var(--ls-wide, 0.04em);
+}
+
+/* 7-Step Process Line Diagram */
+.process-diagram-wrap {
+  position: relative;
+  width: 100%;
+  margin-top: 40px;
+}
+
+/* Horizontal connecting line */
+.process-timeline-bar {
+  position: absolute;
+  top: 40px;
+  left: 3%;
+  right: 3%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  z-index: 1;
+}
+
+.process-timeline-progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(
+    90deg,
+    var(--color-gold, #C5A55A) 0%,
+    #D4AF37 100%
+  );
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.5);
+  transition: width 0.3s ease;
+}
+
+/* Steps Grid */
+.process-steps-grid {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 16px;
+}
+
+.process-step-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+
+/* Circular Node Marker */
+.process-node-bullet {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #050505;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  transition: all 0.4s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.process-node-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--color-text-subtle, #555555);
+  transition: all 0.4s ease;
+}
+
+.process-step-node.is-active .process-node-bullet {
+  border-color: var(--color-gold, #C5A55A);
+  box-shadow: 0 0 18px rgba(212, 175, 55, 0.4);
+  transform: scale(1.15);
+}
+
+.process-step-node.is-active .process-node-dot {
+  background-color: var(--color-gold, #C5A55A);
+  box-shadow: 0 0 8px var(--color-gold, #C5A55A);
+}
+
+/* Step Card Box */
+.process-step-box {
+  width: 100%;
+  padding: 20px 14px;
+  background: rgba(12, 12, 12, 0.6);
+  border: 1px solid var(--color-border-subtle, #151515);
+  transition: all 0.4s ease;
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.process-step-node.is-active .process-step-box,
+.process-step-node:hover .process-step-box {
+  border-color: rgba(212, 175, 55, 0.4);
+  background: rgba(18, 18, 18, 0.9);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.8), 0 0 16px rgba(212, 175, 55, 0.08);
+}
+
+.process-step-order {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 0.6875rem;
+  letter-spacing: 0.12em;
+  color: var(--color-gold, #C5A55A);
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.process-step-name {
+  font-family: var(--font-display, 'Montserrat', 'Syne', sans-serif);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--color-text-primary, #FFFFFF);
+  text-transform: uppercase;
+  margin: 0 0 8px 0;
+}
+
+.process-step-desc {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 0.75rem;
+  line-height: 1.5;
+  color: var(--color-text-muted, #777777);
+  margin: 0;
+}
+
+.process-step-node.is-active .process-step-desc {
+  color: var(--color-text-secondary, #E8E8E8);
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .process-steps-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+  .process-timeline-bar {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .process-steps-grid {
+    grid-template-columns: 1fr;
+  }
+}

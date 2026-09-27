@@ -1,0 +1,120 @@
+/* ============================================================
+   STALWART GROUP — CSS RESET
+   Modern, minimal reset for a clean rendering baseline.
+   ============================================================ */
+
+/* Box sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margins and paddings */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Prevent font-size inflation on mobile */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+/* Smooth scrolling (Lenis will handle this, but fallback) */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Core body defaults */
+body {
+  min-height: 100vh;
+  line-height: var(--lh-normal, 1.5);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Improve media defaults */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* Inherit fonts for form elements */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+/* Remove list styles */
+ul,
+ol {
+  list-style: none;
+}
+
+/* Avoid text overflows */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* Remove all heading sizes — we control them via design tokens */
+h1, h2, h3, h4, h5, h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+/* Remove anchor styles — we style them explicitly */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Remove button styles — we style them explicitly */
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Remove fieldset/legend defaults */
+fieldset {
+  border: none;
+}
+
+/* Balanced text wrapping for headings */
+h1, h2, h3, h4 {
+  text-wrap: balance;
+}
+
+/* Nicer text wrapping for body copy */
+p {
+  text-wrap: pretty;
+}
+
+/* Reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

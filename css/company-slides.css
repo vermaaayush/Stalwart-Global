@@ -1,0 +1,361 @@
+/* ============================================================
+   STALWART GROUP — SECTION 04: COMPANY PRESENTATION SLIDES
+   Full-screen pinned presentation slides for the 4 divisions:
+   Slide 01 — Stalwart Global
+   Slide 02 — Stalwart Resources
+   Slide 03 — Stalwart Life Sciences
+   Slide 04 — Indian Tadka
+   ============================================================ */
+
+.section-companies {
+  position: relative;
+  width: 100%;
+  background-color: var(--color-bg);
+  border-top: 1px solid var(--color-border-subtle);
+  overflow: hidden;
+}
+
+/* Master Pinned Stage */
+.company-slides-stage {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Slide Deck Wrapper */
+.company-slides-deck {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Individual Full-Screen Presentation Slide */
+.company-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1;
+  transition: visibility 0.4s ease;
+  overflow: hidden;
+  background-color: #050505;
+}
+
+.company-slide.is-current {
+  opacity: 1;
+  visibility: visible;
+  z-index: 2;
+}
+
+/* Architectural grid panels in slide background */
+.slide-panels {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.slide-panel-col {
+  border-right: 1px solid rgba(255, 255, 255, 0.02);
+  height: 100%;
+}
+
+.slide-panel-col:last-child {
+  border-right: none;
+}
+
+/* Slide Content Layout Grid */
+.slide-grid {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-pad);
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: clamp(40px, 5vw, 70px);
+  align-items: center;
+  height: 100%;
+}
+
+/* Left Column: Division Information */
+.slide-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.slide-meta-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-body);
+  font-size: var(--fs-xs);
+  letter-spacing: var(--ls-ultra-wide);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  margin-bottom: var(--space-sm);
+}
+
+.slide-meta-num {
+  color: var(--color-gold);
+  font-weight: var(--fw-semibold);
+}
+
+.slide-meta-divider {
+  width: 30px;
+  height: 1px;
+  background-color: var(--color-border-light);
+}
+
+.slide-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 5vw, 4.4rem);
+  font-weight: var(--fw-bold);
+  line-height: 1.05;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin: 0 0 var(--space-xs) 0;
+}
+
+.slide-sectors-tag {
+  font-family: var(--font-body);
+  font-size: var(--fs-xs);
+  letter-spacing: var(--ls-extreme);
+  color: var(--color-gold);
+  text-transform: uppercase;
+  margin-bottom: var(--space-md);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.slide-lead {
+  font-family: var(--font-body);
+  font-size: clamp(0.95rem, 1.25vw, 1.12rem);
+  font-weight: var(--fw-light);
+  line-height: 1.7;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-md);
+  max-width: 580px;
+}
+
+.slide-body {
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  line-height: 1.7;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-lg);
+  max-width: 580px;
+}
+
+/* Division Capabilities / Focus Grid */
+.slide-focus-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-sm);
+  margin-bottom: var(--space-xl);
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--space-md);
+  max-width: 580px;
+}
+
+.slide-focus-item {
+  padding: 10px 14px;
+  background: rgba(14, 14, 14, 0.6);
+  border: 1px solid var(--color-border-subtle);
+  transition: all var(--transition-fast);
+}
+
+.slide-focus-item:hover {
+  border-color: rgba(212, 175, 55, 0.35);
+  background: rgba(22, 22, 22, 0.85);
+  transform: translateY(-2px);
+}
+
+.slide-focus-index {
+  font-family: var(--font-body);
+  font-size: 0.625rem;
+  color: var(--color-gold);
+  letter-spacing: 0.1em;
+  margin-bottom: 2px;
+}
+
+.slide-focus-name {
+  font-family: var(--font-display);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-wide);
+  color: var(--color-text-primary);
+  text-transform: uppercase;
+}
+
+.slide-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+/* Right Column: Visual Stage */
+.slide-visual-stage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 11;
+  border: 1px solid var(--color-border-light);
+  overflow: hidden;
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.95);
+  background-color: #080808;
+}
+
+.slide-visual-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.slide-visual-inner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: contrast(1.1) grayscale(100%);
+  transition: transform 0.8s var(--ease-cinematic), filter 0.8s ease;
+}
+
+.slide-visual-stage:hover .slide-visual-inner img {
+  transform: scale(1.04);
+  filter: contrast(1.15) grayscale(75%);
+}
+
+.slide-visual-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(5, 5, 5, 0.1) 0%,
+    rgba(5, 5, 5, 0.7) 100%
+  );
+  pointer-events: none;
+}
+
+.slide-visual-caption {
+  position: absolute;
+  bottom: 16px;
+  left: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--font-body);
+  font-size: var(--fs-xs);
+  letter-spacing: var(--ls-ultra-wide);
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  z-index: 2;
+}
+
+.slide-visual-badge {
+  color: var(--color-gold);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.slide-visual-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: var(--color-gold);
+}
+
+/* Floating Slide Navigation Indicator (Right Edge) */
+.slides-nav-tracker {
+  position: absolute;
+  right: 32px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.slides-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px 0;
+  opacity: 0.35;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  outline: none;
+}
+
+.slides-nav-item.is-active,
+.slides-nav-item:hover {
+  opacity: 1;
+  transform: translateX(-4px);
+}
+
+.slides-nav-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--color-text-subtle);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.slides-nav-item.is-active .slides-nav-dot {
+  background-color: var(--color-gold);
+  transform: scale(1.6);
+  box-shadow: 0 0 10px var(--color-gold);
+}
+
+.slides-nav-title {
+  font-family: var(--font-body);
+  font-size: 0.6875rem;
+  letter-spacing: var(--ls-ultra-wide);
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  display: none;
+}
+
+@media (min-width: 1280px) {
+  .slides-nav-title {
+    display: block;
+  }
+}
+
+/* ── Responsive Adaptations ───────────────────────────────── */
+@media (max-width: 1024px) {
+  .slide-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+    padding: 80px var(--container-pad) 40px;
+    overflow-y: auto;
+  }
+
+  .slide-visual-stage {
+    aspect-ratio: 16 / 9;
+    max-height: 260px;
+  }
+
+  .slides-nav-tracker {
+    right: 16px;
+  }
+}

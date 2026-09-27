@@ -1,0 +1,529 @@
+/* ============================================================
+   STALWART GROUP — HERO SECTION & SITE HEADER
+   Exact faithful reproduction of project_hero_mockup.png:
+   - Header with left STALWART, center nav links (HOME gold underline),
+     right MENU + with 4-dot square grid icon.
+   - Architectural stone/slate vertical panels backdrop.
+   - Centered STALWART display title with chrome gradient.
+   - Centered 3D Metallic Gold Lion Shield Logo overlapping STALWART.
+   - Centered G R O U P subtitle directly beneath the shield tip.
+   - Bottom bar with 03 / 06 progress indicator and EXPLORE ( -> ).
+   ============================================================ */
+
+/* ── Top Header Navigation ────────────────────────────────── */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  z-index: var(--z-header, 100);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 clamp(20px, 4vw, 64px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(5, 5, 5, 0.55);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: background-color var(--transition-normal), border-color var(--transition-normal);
+}
+
+.site-header.scrolled {
+  background: rgba(5, 5, 5, 0.88);
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Left Brand Wordmark */
+.site-header .nav-brand {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  z-index: 2;
+}
+
+.nav-brand-text {
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 1.3vw, 1.2rem);
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  transition: opacity var(--transition-fast);
+}
+
+.nav-brand:hover .nav-brand-text {
+  opacity: 0.85;
+}
+
+/* Center Navigation Links */
+.site-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: clamp(16px, 2.2vw, 38px);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-link {
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  color: #CCCCCC;
+  text-transform: uppercase;
+  text-decoration: none;
+  position: relative;
+  padding: 8px 0;
+  display: inline-block;
+  transition: color var(--transition-fast);
+}
+
+.nav-link:hover {
+  color: #FFFFFF;
+}
+
+.nav-link.active {
+  color: #FFFFFF;
+  font-weight: 600;
+}
+
+/* Mockup's signature gold underline for active menu item */
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #D4AF37;
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.65);
+}
+
+/* Right Navigation Actions (MENU + and 4-dot Grid Icon) */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  z-index: 2;
+}
+
+.nav-menu-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: transparent;
+  border: none;
+  color: #FFFFFF;
+  cursor: pointer;
+  text-decoration: none;
+  padding: 8px 4px;
+  transition: opacity var(--transition-fast);
+}
+
+.nav-menu-btn:hover {
+  opacity: 0.8;
+}
+
+.nav-menu-text {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  color: #FFFFFF;
+  text-transform: uppercase;
+}
+
+/* 4-dot square grid icon matching mockup */
+.nav-grid-icon {
+  display: grid;
+  grid-template-columns: repeat(2, 4.5px);
+  grid-template-rows: repeat(2, 4.5px);
+  gap: 4px;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-grid-icon span {
+  width: 4.5px;
+  height: 4.5px;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+  display: block;
+}
+
+
+/* ── Hero Section Architecture ────────────────────────────── */
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  background-color: #050505;
+  background-image: 
+    radial-gradient(ellipse 90% 70% at 50% 45%, rgba(15, 15, 15, 0.6) 0%, rgba(5, 5, 5, 0.95) 100%),
+    url('../assets/images/hero-slate-texture.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+  padding-top: 80px;
+}
+
+/* Architectural vertical panels backdrop (5 columns) */
+.hero-panels {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hero-panel-col {
+  border-right: 1px solid rgba(255, 255, 255, 0.035);
+  height: 100%;
+  position: relative;
+}
+
+.hero-panel-col:last-child {
+  border-right: none;
+}
+
+/* Subtle architectural lighting beam on panels */
+.hero-panel-col:nth-child(2)::before,
+.hero-panel-col:nth-child(3)::before,
+.hero-panel-col:nth-child(4)::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.018) 0%,
+    transparent 65%
+  );
+  pointer-events: none;
+}
+
+/* Floor reflection shadow gradient */
+.hero-section::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 180px;
+  background: linear-gradient(180deg, transparent 0%, rgba(5, 5, 5, 0.85) 100%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+
+/* ── Hero Centerpiece Stage ───────────────────────────────── */
+.hero-stage {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.hero-centerpiece {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+/* Massive STALWART typography spanning across horizontal canvas */
+.hero-title-container {
+  position: relative;
+  width: 100%;
+  text-align: center;
+  z-index: 1;
+  user-select: none;
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 15vw, 15rem);
+  font-weight: 800;
+  line-height: 0.88;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
+  background: linear-gradient(
+    180deg,
+    #FFFFFF 0%,
+    #D6D6D6 42%,
+    #888888 75%,
+    #424242 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 4px 35px rgba(0, 0, 0, 0.95));
+}
+
+/* 3D Metallic Gold Lion Shield Logo centered and overlapping */
+.hero-lion-wrapper {
+  position: absolute;
+  top: 46%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: clamp(190px, 20vw, 320px);
+  aspect-ratio: 306 / 331;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto;
+  filter: 
+    drop-shadow(0 25px 50px rgba(0, 0, 0, 0.95))
+    drop-shadow(0 0 60px rgba(212, 175, 55, 0.28));
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s ease;
+  animation: heroLionSubtleFloat 6s ease-in-out infinite alternate;
+}
+
+.hero-lion-wrapper:hover {
+  transform: translate(-50%, -53%) scale(1.03);
+  filter: 
+    drop-shadow(0 32px 65px rgba(0, 0, 0, 1))
+    drop-shadow(0 0 85px rgba(212, 175, 55, 0.45));
+}
+
+@keyframes heroLionSubtleFloat {
+  0% {
+    transform: translate(-50%, -50%);
+  }
+  100% {
+    transform: translate(-50%, -52%);
+  }
+}
+
+.hero-lion-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  pointer-events: none;
+}
+
+/* Subtle warm radial aura behind lion */
+.hero-lion-glow {
+  position: absolute;
+  inset: -25%;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at center,
+    rgba(212, 175, 55, 0.24) 0%,
+    rgba(184, 148, 46, 0.08) 50%,
+    transparent 72%
+  );
+  filter: blur(40px);
+  pointer-events: none;
+}
+
+/* Centered G R O U P subtitle directly beneath the shield tip */
+.hero-subtitle-group {
+  position: relative;
+  z-index: 3;
+  margin-top: clamp(16px, 2.2vw, 36px);
+  font-family: var(--font-display);
+  font-size: clamp(0.95rem, 1.4vw, 1.45rem);
+  font-weight: 300;
+  letter-spacing: 0.85em;
+  text-indent: 0.85em; /* Compensates for last-letter trailing spacing for exact centering */
+  color: #FFFFFF;
+  text-transform: uppercase;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.95);
+  opacity: 0.95;
+  user-select: none;
+}
+
+
+/* ── Hero Bottom Bar ──────────────────────────────────────── */
+.hero-bottom-bar {
+  position: relative;
+  width: 100%;
+  height: 80px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 clamp(20px, 4vw, 64px);
+  z-index: 4;
+  background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.75) 100%);
+}
+
+/* Bottom Left Counter and Progress Bar */
+.hero-bottom-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.hero-counter-num {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: #FFFFFF;
+}
+
+.hero-progress-line {
+  width: 105px;
+  height: 2px;
+  background-color: #262626;
+  border-radius: 1px;
+  overflow: hidden;
+  position: relative;
+}
+
+.hero-progress-active {
+  width: 50%;
+  height: 100%;
+  background: #D4AF37;
+  box-shadow: 0 0 8px rgba(212, 175, 55, 0.75);
+}
+
+/* Bottom Right Explore CTA */
+.hero-bottom-right {
+  display: flex;
+  align-items: center;
+}
+
+.hero-explore-link {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  text-decoration: none;
+  color: #FFFFFF;
+  cursor: pointer;
+  transition: transform var(--transition-fast), opacity var(--transition-fast);
+}
+
+.hero-explore-link:hover {
+  opacity: 0.85;
+  transform: translateX(3px);
+}
+
+.hero-explore-label {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  color: #FFFFFF;
+  text-transform: uppercase;
+}
+
+.hero-explore-circle-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.hero-explore-link:hover .hero-explore-circle-btn {
+  border-color: #D4AF37;
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+}
+
+.hero-explore-circle-btn svg {
+  width: 18px;
+  height: 18px;
+  stroke: #FFFFFF;
+  transition: stroke var(--transition-fast), transform var(--transition-fast);
+}
+
+.hero-explore-link:hover .hero-explore-circle-btn svg {
+  stroke: #D4AF37;
+  transform: translateX(2px);
+}
+
+
+/* ── Responsive Styling ───────────────────────────────────── */
+@media (max-width: 1024px) {
+  .site-header {
+    height: 70px;
+    padding: 0 24px;
+  }
+
+  .site-nav {
+    display: none; /* Mobile menu handles navigation */
+  }
+
+  .hero-section {
+    padding-top: 70px;
+  }
+
+  .hero-panels {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .hero-panel-col:nth-child(4),
+  .hero-panel-col:nth-child(5) {
+    display: none;
+  }
+
+  .hero-title {
+    font-size: clamp(3.2rem, 14vw, 8rem);
+  }
+
+  .hero-lion-wrapper {
+    width: clamp(160px, 24vw, 240px);
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-title {
+    font-size: clamp(2.8rem, 13vw, 5rem);
+  }
+
+  .hero-lion-wrapper {
+    width: clamp(140px, 32vw, 200px);
+  }
+
+  .hero-subtitle-group {
+    font-size: 0.85rem;
+    letter-spacing: 0.6em;
+    text-indent: 0.6em;
+    margin-top: 14px;
+  }
+
+  .hero-bottom-bar {
+    height: 65px;
+    padding: 0 20px;
+  }
+
+  .hero-progress-line {
+    width: 60px;
+  }
+}

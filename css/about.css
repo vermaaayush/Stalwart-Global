@@ -1,0 +1,319 @@
+/* ============================================================
+   STALWART GROUP — SECTION 03: ABOUT STALWART
+   Asymmetric editorial layout, cinematic monochrome imagery,
+   parallax motion, and 5 foundational pillars metadata grid.
+   ============================================================ */
+
+.section-about {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  background-color: var(--color-bg);
+  border-top: 1px solid var(--color-border-subtle);
+  padding: 140px 0;
+  overflow: hidden;
+}
+
+/* Subtle architectural vertical lines in background */
+.about-panels {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.about-panel-col {
+  border-right: 1px solid rgba(255, 255, 255, 0.025);
+  height: 100%;
+}
+
+.about-panel-col:last-child {
+  border-right: none;
+}
+
+.about-container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-pad);
+}
+
+/* Section Header Meta */
+.about-header {
+  margin-bottom: var(--space-xl);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--color-border-subtle);
+  padding-bottom: var(--space-md);
+}
+
+.about-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-body);
+  font-size: var(--fs-xs);
+  letter-spacing: var(--ls-ultra-wide);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+}
+
+.about-label-num {
+  color: var(--color-gold);
+  font-weight: var(--fw-semibold);
+}
+
+.about-label-line {
+  width: 32px;
+  height: 1px;
+  background-color: var(--color-border-light);
+}
+
+.about-category {
+  font-family: var(--font-body);
+  font-size: var(--fs-xs);
+  letter-spacing: var(--ls-extreme);
+  color: var(--color-text-subtle);
+  text-transform: uppercase;
+}
+
+/* Asymmetric Dual-Column Grid */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: clamp(40px, 6vw, 80px);
+  align-items: start;
+}
+
+/* Left Column: Editorial Content */
+.about-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.about-headline {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 4.5vw, 4.2rem);
+  font-weight: var(--fw-bold);
+  line-height: 1.1;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  margin: 0 0 var(--space-lg) 0;
+}
+
+.about-lead {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 1.3vw, 1.18rem);
+  font-weight: var(--fw-light);
+  line-height: 1.8;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-md);
+  letter-spacing: var(--ls-wide);
+}
+
+.about-body-text {
+  font-family: var(--font-body);
+  font-size: var(--fs-base);
+  line-height: 1.8;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-xl);
+}
+
+/* 5 Pillars Metadata Grid */
+.about-pillars-title {
+  font-family: var(--font-body);
+  font-size: var(--fs-xs);
+  letter-spacing: var(--ls-ultra-wide);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  margin-bottom: var(--space-md);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.about-pillars-title::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--color-gold);
+}
+
+.about-pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-sm);
+  margin-bottom: var(--space-xl);
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--space-md);
+}
+
+.about-pillar-item {
+  padding: var(--space-sm) var(--space-md);
+  background: rgba(12, 12, 12, 0.5);
+  border: 1px solid var(--color-border-subtle);
+  transition: all var(--transition-fast);
+}
+
+.about-pillar-item:hover {
+  background: rgba(20, 20, 20, 0.8);
+  border-color: rgba(212, 175, 55, 0.4);
+  transform: translateY(-2px);
+}
+
+.about-pillar-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.about-pillar-name {
+  font-family: var(--font-display);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--ls-wider);
+  color: var(--color-text-primary);
+  text-transform: uppercase;
+}
+
+.about-pillar-num {
+  font-family: var(--font-body);
+  font-size: 0.6875rem;
+  color: var(--color-gold);
+  letter-spacing: 0.1em;
+}
+
+.about-pillar-desc {
+  font-family: var(--font-body);
+  font-size: var(--fs-xs);
+  color: var(--color-text-muted);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.about-pillar-item:last-child {
+  grid-column: span 2;
+}
+
+/* Right Column: Architectural Photography Frame */
+.about-visual-wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.about-image-card {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  border: 1px solid var(--color-border-light);
+  overflow: hidden;
+  background-color: #080808;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9);
+}
+
+/* Parallax Inner Container */
+.about-image-inner {
+  width: 100%;
+  height: 115%;
+  position: relative;
+  top: -7.5%;
+}
+
+.about-image-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: contrast(1.1) grayscale(100%);
+  transition: transform 0.8s var(--ease-cinematic), filter 0.8s ease;
+}
+
+.about-image-card:hover img {
+  transform: scale(1.04);
+  filter: contrast(1.15) grayscale(85%);
+}
+
+/* Fine-line Corner Accents */
+.about-card-corner {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-color: var(--color-gold);
+  z-index: 3;
+  pointer-events: none;
+}
+
+.about-card-corner--tl {
+  top: 8px;
+  left: 8px;
+  border-top: 1px solid var(--color-gold);
+  border-left: 1px solid var(--color-gold);
+}
+
+.about-card-corner--br {
+  bottom: 8px;
+  right: 8px;
+  border-bottom: 1px solid var(--color-gold);
+  border-right: 1px solid var(--color-gold);
+}
+
+/* Coordinates / Location Tag */
+.about-image-meta {
+  margin-top: var(--space-sm);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--font-body);
+  font-size: var(--fs-xs);
+  letter-spacing: var(--ls-ultra-wide);
+  color: var(--color-text-subtle);
+  text-transform: uppercase;
+}
+
+.about-meta-gold {
+  color: var(--color-gold);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.about-meta-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: var(--color-gold);
+}
+
+/* ── Responsive Adaptations ───────────────────────────────── */
+@media (max-width: 1024px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+  }
+
+  .about-image-card {
+    aspect-ratio: 16 / 10;
+  }
+
+  .about-pillar-item:last-child {
+    grid-column: span 1;
+  }
+}
+
+@media (max-width: 640px) {
+  .about-pillars-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-pillar-item:last-child {
+    grid-column: span 1;
+  }
+}

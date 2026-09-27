@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stalwart Group — From Source to Market | International Trade & Supply Chain</title>
+  <meta name="description" content="Stalwart Group connects businesses, markets and opportunities across borders through relationships, sourcing expertise, supply-chain capabilities, trade, distribution and operations.">
+
+  <!-- Favicon using exact main_lion.png asset -->
+  <link rel="icon" type="image/png" href="./main_lion.png">
+
+  <!-- Google Fonts: Montserrat (Primary Display & Body) & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Core Stylesheet -->
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/tokens.css">
+  <link rel="stylesheet" href="./css/hero-sequence.css">
+</head>
+<body>
+
+  <!-- Outer Scroll Track (Physical scroll distance for ScrollTrigger scrub pinning) -->
+  <div id="hero-scroll-container" class="hero-scroll-container">
+
+    <!-- Pinned 100vh Viewport Stage -->
+    <div id="hero-viewport" class="hero-viewport">
+
+      <!-- ── Background Architectural Slate Panels (hero_bg.png) ── -->
+      <div class="hero-slate-bg" id="hero-slate-bg" aria-hidden="true"></div>
+
+      <!-- ── Header Navigation (Revealed during Stage 03) ── -->
+      <header class="site-header" id="site-header" aria-label="Main Navigation">
+        <a href="#home" class="nav-brand" aria-label="Stalwart Group Home">
+          <span class="nav-brand-text">STALWART</span>
+        </a>
+
+        <nav class="site-nav" aria-label="Primary Navigation">
+          <ul class="nav-menu">
+            <li><a href="#home" class="nav-link active">HOME</a></li>
+            <li><a href="#about" class="nav-link">ABOUT</a></li>
+            <li><a href="#companies" class="nav-link">COMPANIES</a></li>
+            <li><a href="#capabilities" class="nav-link">CAPABILITIES</a></li>
+            <li><a href="#presence" class="nav-link">GLOBAL PRESENCE</a></li>
+            <li><a href="#network" class="nav-link">NETWORK</a></li>
+            <li><a href="#partner" class="nav-link">PARTNER WITH US</a></li>
+            <li><a href="#contact" class="nav-link">CONTACT</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <!-- ── Stage 01 & 02 & 03: The Main Lion Logo Actor ── -->
+      <div class="lion-stage" id="lion-stage">
+        <div class="lion-floating-wrapper" id="lion-floating-wrapper">
+          <div class="lion-ambient-aura" id="lion-aura" aria-hidden="true"></div>
+          <img 
+            src="./main_lion.png" 
+            alt="Stalwart Group 3D Imperial Gold Lion" 
+            class="main-lion-img" 
+            id="main-lion-img"
+          >
+        </div>
+      </div>
+
+      <!-- ── Stage 02: Centered STALWART GROUP Branding Reveal ── -->
+      <div class="branding-stage" id="branding-stage" aria-hidden="true">
+        <div class="branding-text-group" id="branding-text-group">
+          <h2 class="branding-title text-chronicle">STALWART</h2>
+          <div class="branding-subtitle">GROUP</div>
+        </div>
+      </div>
+
+      <!-- ── Stage 03: Hero Content (Left Side Reveal) ── -->
+      <div class="hero-content-stage" id="hero-content-stage">
+        <div class="hero-text-container" id="hero-text-container">
+          <div class="hero-tag">
+            <span class="hero-tag-dot"></span>
+            <span>FROM SOURCE TO MARKET</span>
+          </div>
+          <h1 class="hero-main-title text-chronicle">FROM SOURCE<br>TO MARKET.</h1>
+          <h2 class="hero-sub-title">BUILDING BUSINESSES ACROSS BORDERS.</h2>
+          <p class="hero-description">
+            A diversified international enterprise connecting relationships, cross-border sourcing, and supply-chain execution across global commodity, agriculture, industrial resources, and consumer markets.
+          </p>
+        </div>
+      </div>
+
+      <!-- ── Subtle Cinematic Scroll Indicator (Visible in Stage 01) ── -->
+      <div class="scroll-cue" id="scroll-cue" aria-hidden="true">
+        <span class="scroll-cue-text">SCROLL TO ENTER</span>
+        <div class="scroll-cue-pill">
+          <div class="scroll-cue-dot"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Master JavaScript Application -->
+  <script type="module" src="./js/main.js"></script>
+</body>
+</html>
