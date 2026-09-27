@@ -8,20 +8,24 @@ export let lenisInstance = null;
 
 /**
  * Initialize Lenis smooth scroll and wire it seamlessly to GSAP ScrollTrigger
+ * Configured for an ultra-luxurious, weighted, silky-smooth inertial scroll feel.
  */
 export function initSmoothScroll() {
   if (typeof window === 'undefined') return null;
 
   lenisInstance = new Lenis({
-    duration: 1.6,
+    duration: 1.4, // Luxuriously smooth inertia (slightly slower, velvety feel)
     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
     orientation: 'vertical',
     gestureOrientation: 'vertical',
     smoothWheel: true,
-    wheelMultiplier: 1.15,
-    touchMultiplier: 2.0,
+    wheelMultiplier: 1.0,
+    touchMultiplier: 1.5,
     infinite: false,
   });
+
+  // Expose global window.lenis for vendor.js compatibility
+  window.lenis = lenisInstance;
 
   // Sync Lenis scroll with GSAP ScrollTrigger
   lenisInstance.on('scroll', ScrollTrigger.update);
@@ -31,8 +35,8 @@ export function initSmoothScroll() {
     lenisInstance.raf(time * 1000);
   });
 
-  // Prevent lag smoothing delays for 60fps responsiveness
-  gsap.ticker.lagSmoothing(0);
+  // Smooth out any frame hitches gracefully
+  gsap.ticker.lagSmoothing(500, 33);
 
   return lenisInstance;
 }

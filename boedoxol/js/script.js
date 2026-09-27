@@ -1,0 +1,1 @@
+runLoader().then(()=>{BdxInitPageAfter()});const lenis=new Lenis({duration:1.5,easing:e=>Math.min(1,1.001-Math.pow(2,-10*e)),lerp:.1,snap:!1});function raf(e){lenis.raf(e),requestAnimationFrame(raf)}requestAnimationFrame(raf),BdxInitPageBefore();

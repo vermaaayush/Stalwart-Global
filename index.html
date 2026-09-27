@@ -1,69 +1,100 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Stalwart Group — From Source to Market | International Trade & Supply Chain</title>
-  <meta name="description" content="Stalwart Group connects businesses, markets and opportunities across borders through relationships, sourcing expertise, supply-chain capabilities, trade, distribution and operations.">
+  <meta name="description"
+    content="Stalwart Group connects products, suppliers and markets through international sourcing, trade, supply chain management, distribution and operations.">
 
-  <!-- Favicon using exact main_lion.png asset -->
-  <link rel="icon" type="image/png" href="./main_lion.png">
+  <!-- Favicon using Stalwart Imperial Gold Lion -->
+  <link rel="icon" type="image/png" href="assets/images/stalwart-lion-shield-exact.png">
 
-  <!-- Google Fonts: Montserrat (Primary Display & Body) & Inter -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Google Fonts: Google Sans Flex & Vend Sans (Preserving Boedoxol Font System) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com/">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wdth,wght,GRAD,ROND@6..144,85,1..1000,100,40&amp;family=Vend+Sans:ital,wght@0,300..700;1,300..700&amp;display=swap"
+    rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
 
-  <!-- Core Stylesheet -->
-  <link rel="stylesheet" href="./css/reset.css">
-  <link rel="stylesheet" href="./css/tokens.css">
-  <link rel="stylesheet" href="./css/hero-sequence.css">
+  <!-- Boedoxol Theme & Hero Sequence Stylesheets -->
+  <link rel="stylesheet" href="css/plugins.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/hero-sequence.css">
 </head>
-<body>
 
-  <!-- Outer Scroll Track (Physical scroll distance for ScrollTrigger scrub pinning) -->
+<body class="is-home-page">
+
+  <!-- ============================================================
+       CINEMATIC GSAP HERO SEQUENCE (3 STAGES)
+       ============================================================ -->
   <div id="hero-scroll-container" class="hero-scroll-container">
-
-    <!-- Pinned 100vh Viewport Stage -->
     <div id="hero-viewport" class="hero-viewport">
 
-      <!-- ── Background Architectural Slate Panels (hero_bg.png) ── -->
+      <!-- Background Architectural Slate Panels (hero_bg.png) -->
       <div class="hero-slate-bg" id="hero-slate-bg" aria-hidden="true"></div>
 
-      <!-- ── Header Navigation (Revealed during Stage 03) ── -->
-      <header class="site-header" id="site-header" aria-label="Main Navigation">
-        <a href="#home" class="nav-brand" aria-label="Stalwart Group Home">
-          <span class="nav-brand-text">STALWART</span>
-        </a>
+      <!-- Animated Vector Background Beams (Aceternity UI) -->
+      <div class="background-beams-wrapper" id="background-beams" aria-hidden="true"></div>
 
-        <nav class="site-nav" aria-label="Primary Navigation">
-          <ul class="nav-menu">
-            <li><a href="#home" class="nav-link active">HOME</a></li>
-            <li><a href="#about" class="nav-link">ABOUT</a></li>
-            <li><a href="#companies" class="nav-link">COMPANIES</a></li>
-            <li><a href="#capabilities" class="nav-link">CAPABILITIES</a></li>
-            <li><a href="#presence" class="nav-link">GLOBAL PRESENCE</a></li>
-            <li><a href="#network" class="nav-link">NETWORK</a></li>
-            <li><a href="#partner" class="nav-link">PARTNER WITH US</a></li>
-            <li><a href="#contact" class="nav-link">CONTACT</a></li>
+      <!-- Header Navigation in Hero Area (No Corner Logo) -->
+      <header class="site-header navigation" id="site-header" style="opacity: 0; pointer-events: none;" aria-label="Main Navigation">
+        <div class="container-fluid px-3 d-flex justify-content-center align-items-center">
+          <ul class="bdx_nav list-unstyled d-none d-lg-flex mb-0">
+            <li class="active"><a data-text="Home" href="index.html">Home</a></li>
+            <li><a data-text="About" href="about.html">About</a></li>
+            <li class="has_child">
+              <a data-text="Our Companies" href="#">Our Companies</a>
+              <ul class="child_menu">
+                <li><a data-text="Stalwart Global" href="stalwart-global.html">Stalwart Global</a></li>
+                <li><a data-text="Stalwart Resources" href="stalwart-resources.html">Stalwart Resources</a></li>
+                <li><a data-text="Stalwart Life Sciences" href="stalwart-life-sciences.html">Stalwart Life Sciences</a>
+                </li>
+                <li><a data-text="Indian Tadka" href="indian-tadka.html">Indian Tadka</a></li>
+              </ul>
+            </li>
+            <li class="has_child">
+              <a data-text="Capabilities" href="capabilities.html">Capabilities</a>
+              <ul class="child_menu">
+                <li><a data-text="Global Sourcing" href="capabilities.html#sourcing">Global Sourcing</a></li>
+                <li><a data-text="International Trade" href="capabilities.html#trade">International Trade</a></li>
+                <li><a data-text="Supply Chain" href="capabilities.html#supply-chain">Supply Chain</a></li>
+                <li><a data-text="Logistics" href="capabilities.html#logistics">Logistics</a></li>
+                <li><a data-text="Wholesale & Distribution" href="capabilities.html#distribution">Wholesale &
+                    Distribution</a></li>
+                <li><a data-text="Hospitality Operations" href="capabilities.html#hospitality">Hospitality
+                    Operations</a></li>
+                <li><a data-text="Market Development" href="capabilities.html#market-dev">Market Development</a></li>
+              </ul>
+            </li>
+            <li><a data-text="Global Presence" href="global-presence.html">Global Presence</a></li>
+            <li><a data-text="Partner" href="partner.html">Partner With Us</a></li>
+            <li><a data-text="Contact" href="contact.html">Contact</a></li>
           </ul>
-        </nav>
+          <div class="mobile_menu_container d-lg-none d-flex ms-auto">
+            <button type="button" class="mobile_menu_toggle d-flex flex-column gap-1" aria-label="Toggle Menu">
+              <span class="line line-1"></span>
+              <span class="line line-2"></span>
+            </button>
+            <div class="mobile_menu"></div>
+          </div>
+        </div>
       </header>
 
-      <!-- ── Stage 01 & 02 & 03: The Main Lion Logo Actor ── -->
+      <!-- Stage 01 & 02 & 03: 3D Imperial Gold Lion Actor -->
       <div class="lion-stage" id="lion-stage">
         <div class="lion-floating-wrapper" id="lion-floating-wrapper">
           <div class="lion-ambient-aura" id="lion-aura" aria-hidden="true"></div>
-          <img 
-            src="./main_lion.png" 
-            alt="Stalwart Group 3D Imperial Gold Lion" 
-            class="main-lion-img" 
-            id="main-lion-img"
-          >
+          <img src="assets/images/main_lion.png" alt="Stalwart Group 3D Imperial Gold Lion" class="main-lion-img"
+            id="main-lion-img">
         </div>
       </div>
 
-      <!-- ── Stage 02: Centered STALWART GROUP Branding Reveal ── -->
+      <!-- Stage 02: Centered STALWART GROUP Branding Reveal -->
       <div class="branding-stage" id="branding-stage" aria-hidden="true">
         <div class="branding-text-group" id="branding-text-group">
           <h2 class="branding-title text-chronicle">STALWART</h2>
@@ -71,22 +102,19 @@
         </div>
       </div>
 
-      <!-- ── Stage 03: Hero Content (Left Side Reveal) ── -->
+      <!-- Stage 03: Hero Content (Left Side Reveal) -->
       <div class="hero-content-stage" id="hero-content-stage">
         <div class="hero-text-container" id="hero-text-container">
           <div class="hero-tag">
             <span class="hero-tag-dot"></span>
-            <span>FROM SOURCE TO MARKET</span>
+            <span>STALWART GLOBAL</span>
           </div>
-          <h1 class="hero-main-title text-chronicle">FROM SOURCE<br>TO MARKET.</h1>
-          <h2 class="hero-sub-title">BUILDING BUSINESSES ACROSS BORDERS.</h2>
-          <p class="hero-description">
-            A diversified international enterprise connecting relationships, cross-border sourcing, and supply-chain execution across global commodity, agriculture, industrial resources, and consumer markets.
-          </p>
+          <h1 class="hero-main-title text-chronicle">Building Businesses Across Borders.</h1>
+          <h2 class="hero-sub-title">Global Connections. Reliable Supply. Stronger Markets.</h2>
         </div>
       </div>
 
-      <!-- ── Subtle Cinematic Scroll Indicator (Visible in Stage 01) ── -->
+      <!-- Scroll Cue Indicator -->
       <div class="scroll-cue" id="scroll-cue" aria-hidden="true">
         <span class="scroll-cue-text">SCROLL TO ENTER</span>
         <div class="scroll-cue-pill">
@@ -97,7 +125,588 @@
     </div>
   </div>
 
-  <!-- Master JavaScript Application -->
-  <script type="module" src="./js/main.js"></script>
+  <!-- Main Content Wrapper -->
+  <div class="main_wrapper">
+
+    <!-- 01.5 STATEMENT: CANVAS TEXT SECTION (Aceternity UI) -->
+    <section class="canvas-text-section position-relative overflow-hidden">
+      <div class="container-fluid">
+        <div class="d-flex min-h-80 align-items-center justify-content-center py-4 py-md-5">
+          <h2 class="canvas-text-statement max-w-4xl text-left">
+            Connecting Source to Market with <span class="canvas-text" data-text="Absolute Precision"
+              data-colors='["rgba(255, 223, 0, 1)", "rgba(245, 215, 127, 0.95)", "rgba(212, 175, 55, 0.9)", "rgba(255, 240, 160, 0.85)", "rgba(212, 175, 55, 0.75)", "rgba(245, 215, 127, 0.65)", "rgba(212, 175, 55, 0.5)", "rgba(255, 223, 0, 0.4)", "rgba(245, 215, 127, 0.3)", "rgba(212, 175, 55, 0.15)"]'
+              data-line-gap="4" data-duration="16">Absolute Precision</span>
+          </h2>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02. INTRODUCTION / GLOBAL NETWORK SHOWCASE -->
+    <section class="globe-showcase-section py-20 position-relative" id="global-network">
+      <!-- Ambient Floor Glow from Golden Sphere -->
+      <div class="globe-ambient-glow" aria-hidden="true"></div>
+
+      <div class="container-fluid px-lg-5 px-3 position-relative" style="z-index: 2; overflow: visible;">
+        <div class="row align-items-center g-5 min-vh-75" style="overflow: visible;">
+
+          <!-- Left Column: 3D Interactive World Globe with Floating HUD Markers -->
+          <div class="col-lg-7 col-12 position-relative" style="overflow: visible;">
+            <!-- Top Left Data Marker -->
+            <div class="globe-stat-top d-none d-md-flex flex-column align-items-start">
+              <span class="globe-stat-label">GLOBAL<br>NETWORK</span>
+              <div class="globe-stat-line"></div>
+              <span class="globe-stat-num">01</span>
+            </div>
+
+            <!-- 3D Interactive Globe Container (Free Floating Stage) -->
+            <div class="globe-stage-wrapper position-relative w-100 d-flex align-items-center justify-content-center">
+              <div id="globe-canvas-container" class="globe-canvas-container"></div>
+            </div>
+
+            <!-- Bottom Left Data Marker -->
+            <div class="globe-stat-bottom d-none d-md-flex flex-column align-items-start">
+              <span class="globe-stat-big-num">07</span>
+              <span class="globe-stat-sublabel">MARKETS</span>
+              <div class="globe-stat-line mt-1"></div>
+            </div>
+          </div>
+
+          <!-- Right Column: Editorial Typography & Actions -->
+          <div class="col-lg-5 col-12 ps-xl-4">
+            <div class="globe-content-box d-flex flex-column align-items-start text-start">
+              <!-- Golden Dot Badge -->
+              <div class="globe-tag-badge d-inline-flex align-items-center gap-2 mb-3">
+                <span class="globe-dot"></span>
+                <span class="globe-tag-title">(GLOBAL NETWORK)</span>
+              </div>
+
+              <!-- Main Heading (Pure Chronicle White Bold) -->
+              <h2 class="globe-hero-title mb-4">
+                BUILDING BUSINESSES<br>ACROSS BORDERS.
+              </h2>
+
+              <!-- Description -->
+              <p class="globe-lead-text mb-4">
+                Stalwart Group connects products, suppliers and markets through international sourcing, trade, supply
+                chain management, distribution and operations.
+              </p>
+
+              <!-- Operating Markets List -->
+              <div class="globe-markets-wrap mb-5">
+                <p class="globe-markets-p mb-0">
+                  <span class="m-country">India</span> <span class="m-divider">|</span>
+                  <span class="m-country">China</span> <span class="m-divider">|</span>
+                  <span class="m-country">Myanmar</span> <span class="m-divider">|</span>
+                  <span class="m-country">Sri Lanka</span> <span class="m-divider">|</span>
+                  <span class="m-country">Cambodia</span> <span class="m-divider">|</span>
+                  <span class="m-country">Thailand</span> <span class="m-divider">|</span>
+                  <span class="m-country">Australia</span>
+                </p>
+              </div>
+
+              <!-- Action Button -->
+              <div class="d-flex gap-3 flex-wrap align-items-center">
+                <a href="partner.html" class="btn-globe-gold d-inline-flex align-items-center gap-2">
+                  <span>PARTNER WITH US</span>
+                  <span class="btn-arrow-icon">→</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- 04. OUR BUSINESS DIVISIONS — STACKED STICKY CARDS EFFECT -->
+    <section class="works pt-24 pb-4 bg_dark_secondary position-relative" id="companies">
+      <div class="container-fluid">
+        <div class="row align-items-end mb-12">
+          <div class="col-lg-8 d-flex flex-lg-row flex-column align-items-start gap-4">
+            <div>
+              <p class="text-uppercase fs-5 mb-0 bdx_lines_animate">(Our Business Divisions)</p>
+              <h2 class="bdx_big_title lh-1 mb-0 bdx_lines_animate" data-delay="0.3">OUR BUSINESS DIVISIONS.</h2>
+            </div>
+          </div>
+          <div class="col-lg-4 text-end overflow-hidden">
+            <p class="fs-4 mb-0 bdx_lines_animate bdx_sub" data-delay="0.6">
+              Combining international sourcing, distribution, and operational expertise across key global sectors.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sticky Cards Container -->
+      <div class="d-flex flex-column gap-4 px-4 works_sticky_container">
+
+        <!-- Card 1: Stalwart Global -->
+        <div class="works_item">
+          <a class="works_item_inner" href="stalwart-global.html" data-hover="Explore Division">
+            <img src="assets/images/division_fmcg_no_alcohol.jpg" class="works_img_full" alt="Stalwart Global Division">
+            <div class="works_detail d-flex flex-lg-row flex-column">
+              <div class="works_ava">
+                <img src="assets/images/main_lion.png" alt="Stalwart Gold Lion" class="works_lion_icon">
+                <div class="works_client_detail">
+                  <h3>STALWART GLOBAL</h3>
+                  <p>Hospitality | FMCG | Consumer Goods <span class="client_ornament"></span></p>
+                </div>
+              </div>
+              <div class="d-flex flex-column gap-4">
+                <h2 class="bdx_big_title bdx_works_title">Hospitality, FMCG & Consumer Goods</h2>
+              </div>
+              <div class="works_border"></div>
+              <ul class="works_cat_list">
+                <li class="works_cat text-uppercase">Hospitality Operations</li>
+                <li class="works_cat text-uppercase">FMCG Sourcing</li>
+                <li class="works_cat text-uppercase">Institutional Supply</li>
+              </ul>
+            </div>
+            <div class="works_ornament">
+              <i class="ph ph-plus"></i><i class="ph ph-plus"></i><i class="ph ph-plus"></i>
+            </div>
+          </a>
+        </div>
+
+        <!-- Card 2: Stalwart Resources -->
+        <div class="works_item">
+          <a class="works_item_inner" href="stalwart-resources.html" data-hover="Explore Division">
+            <img src="assets/images/division_resources_color.jpg" class="works_img_full"
+              alt="Stalwart Resources Division">
+            <div class="works_detail d-flex flex-lg-row flex-column">
+              <div class="works_ava">
+                <img src="assets/images/main_lion.png" alt="Stalwart Gold Lion" class="works_lion_icon">
+                <div class="works_client_detail">
+                  <h3>STALWART RESOURCES</h3>
+                  <p>Coffee | Sugar | Spices <span class="client_ornament"></span></p>
+                </div>
+              </div>
+              <div class="d-flex flex-column gap-4">
+                <h2 class="bdx_big_title bdx_works_title">Commodities & Food Ingredients</h2>
+              </div>
+              <div class="works_border"></div>
+              <ul class="works_cat_list">
+                <li class="works_cat text-uppercase">Green & Roasted Coffee</li>
+                <li class="works_cat text-uppercase">Commercial Sugar</li>
+                <li class="works_cat text-uppercase">Global Spice Sourcing</li>
+              </ul>
+            </div>
+            <div class="works_ornament">
+              <i class="ph ph-plus"></i><i class="ph ph-plus"></i><i class="ph ph-plus"></i>
+            </div>
+          </a>
+        </div>
+
+        <!-- Card 3: Stalwart Life Sciences -->
+        <div class="works_item">
+          <a class="works_item_inner" href="stalwart-life-sciences.html" data-hover="Explore Division">
+            <img src="assets/images/division_lifesciences_color.jpg" class="works_img_full"
+              alt="Stalwart Life Sciences Division">
+            <div class="works_detail d-flex flex-lg-row flex-column">
+              <div class="works_ava">
+                <img src="assets/images/main_lion.png" alt="Stalwart Gold Lion" class="works_lion_icon">
+                <div class="works_client_detail">
+                  <h3>STALWART LIFE SCIENCES</h3>
+                  <p>Livestock Nutrition | Wellness Products <span class="client_ornament"></span></p>
+                </div>
+              </div>
+              <div class="d-flex flex-column gap-4">
+                <h2 class="bdx_big_title bdx_works_title">Nutrition & Human Wellness</h2>
+              </div>
+              <div class="works_border"></div>
+              <ul class="works_cat_list">
+                <li class="works_cat text-uppercase">Feed Supplements</li>
+                <li class="works_cat text-uppercase">Animal Health</li>
+                <li class="works_cat text-uppercase">Wellness Products</li>
+              </ul>
+            </div>
+            <div class="works_ornament">
+              <i class="ph ph-plus"></i><i class="ph ph-plus"></i><i class="ph ph-plus"></i>
+            </div>
+          </a>
+        </div>
+
+        <!-- Card 4: Indian Tadka -->
+        <div class="works_item">
+          <a class="works_item_inner" href="indian-tadka.html" data-hover="Explore Brand">
+            <img src="assets/images/division_hospitality_color.jpg" class="works_img_full" alt="Indian Tadka International Hospitality">
+            <div class="works_detail d-flex flex-lg-row flex-column">
+              <div class="works_ava">
+                <img src="assets/images/main_lion.png" alt="Stalwart Gold Lion" class="works_lion_icon">
+                <div class="works_client_detail">
+                  <h3>INDIAN TADKA</h3>
+                  <p>Bringing Indian Hospitality to International Markets <span class="client_ornament"></span></p>
+                </div>
+              </div>
+              <div class="d-flex flex-column gap-4">
+                <h2 class="bdx_big_title bdx_works_title">International Hospitality Chain</h2>
+              </div>
+              <div class="works_border"></div>
+              <ul class="works_cat_list">
+                <li class="works_cat text-uppercase">Restaurant Operations</li>
+                <li class="works_cat text-uppercase">Myanmar & Sri Lanka</li>
+                <li class="works_cat text-uppercase">Food Supply Chain</li>
+              </ul>
+            </div>
+            <div class="works_ornament">
+              <i class="ph ph-plus"></i><i class="ph ph-plus"></i><i class="ph ph-plus"></i>
+            </div>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 05. CORE CAPABILITIES — BOEDOXOL GRID LAYOUT WITH HOVER REVEALS -->
+    <div class="services py-24 bg_dark_secondary" id="capabilities">
+      <div class="container-fluid">
+        <p class="text-uppercase fs-5 bdx_lines_animate">(Capabilities)</p>
+        <h2 class="bdx_big_title lh-1 mb-4 bdx_lines_animate" data-delay="0.3">Capabilities That Create Opportunities.
+        </h2>
+        <div class="row mb-5">
+          <div class="col-lg-8">
+            <p class="fs-4 mb-4 bdx_lines_animate" data-delay="0.3">
+              We coordinate product identification, commercial negotiations, logistics movement, and distribution to
+              ensure the right product reaches the right market at the right time.
+            </p>
+          </div>
+        </div>
+
+        <div class="sv_grid">
+          <div class="row_span_2 col_span_2">
+            <div class="sv_item" data-hover="Global Sourcing">
+              <div class="sv_bg"></div>
+              <img class="sv_bg_img" src="assets/images/capability_sourcing_fresh.jpg" alt="Global Sourcing">
+              <div class="sv_content">
+                <ul class="sv_cats">
+                  <li class="sv_cat">Sourcing</li>
+                  <li class="sv_cat">Producers</li>
+                  <li class="sv_cat">Quality</li>
+                </ul>
+                <div class="d-flex sv_text_container">
+                  <h3 data-text="Global Sourcing">Global Sourcing</h3>
+                  <p class="mb-0">Identifying manufacturers, producers and suppliers capable of meeting commercial and
+                    product requirements across borders.</p>
+                </div>
+              </div>
+              <a href="capabilities.html#sourcing" class="sv_btn"><i class="ph ph-arrow-up-right"></i><i
+                  class="ph ph-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <div class="row_span_2">
+            <div class="sv_item" data-hover="International Trade">
+              <div class="sv_bg"></div>
+              <img class="sv_bg_img" src="assets/images/capability_trade_fresh.jpg" alt="International Trade">
+              <div class="sv_content">
+                <ul class="sv_cats">
+                  <li class="sv_cat">Trade</li>
+                  <li class="sv_cat">Cross-Border</li>
+                </ul>
+                <div class="d-flex sv_text_container">
+                  <h3 data-text="International Trade">International Trade</h3>
+                  <p class="mb-0">Facilitating trade across countries and industries, connecting international suppliers
+                    with commercial buyers.</p>
+                </div>
+              </div>
+              <a href="capabilities.html#trade" class="sv_btn"><i class="ph ph-arrow-up-right"></i><i
+                  class="ph ph-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <div class="row_span_2">
+            <div class="sv_item" data-hover="Supply Chain">
+              <div class="sv_bg"></div>
+              <img class="sv_bg_img" src="assets/images/capability_supplychain_fresh.jpg" alt="Supply Chain Management">
+              <div class="sv_content">
+                <ul class="sv_cats">
+                  <li class="sv_cat">Supply Chain</li>
+                  <li class="sv_cat">Logistics</li>
+                </ul>
+                <div class="d-flex sv_text_container">
+                  <h3 data-text="Supply Chain">Supply Chain</h3>
+                  <p class="mb-0">Managing procurement planning, product movement, inventory requirements and
+                    multi-channel supply coordination.</p>
+                </div>
+              </div>
+              <a href="capabilities.html#supply-chain" class="sv_btn"><i class="ph ph-arrow-up-right"></i><i
+                  class="ph ph-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <div class="row_span_1">
+            <div class="sv_item" data-hover="Distribution">
+              <div class="sv_bg"></div>
+              <img class="sv_bg_img" src="assets/images/capability_distribution_fresh.jpg" alt="Wholesale & Distribution">
+              <div class="sv_content">
+                <ul class="sv_cats">
+                  <li class="sv_cat">Wholesale</li>
+                  <li class="sv_cat">Distribution</li>
+                </ul>
+                <div class="d-flex sv_text_container">
+                  <h3 data-text="Distribution">Distribution</h3>
+                  <p class="mb-0">Creating efficient distribution channels connecting products with retailers, hotels,
+                    restaurants and institutional buyers.</p>
+                </div>
+              </div>
+              <a href="capabilities.html#distribution" class="sv_btn"><i class="ph ph-arrow-up-right"></i><i
+                  class="ph ph-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <div class="row_span_1">
+            <div class="sv_item" data-hover="Hospitality Ops">
+              <div class="sv_bg"></div>
+              <img class="sv_bg_img" src="assets/images/capability_hospitality_fresh.jpg" alt="Hospitality Operations">
+              <div class="sv_content">
+                <ul class="sv_cats">
+                  <li class="sv_cat">Hospitality</li>
+                  <li class="sv_cat">Operations</li>
+                </ul>
+                <div class="d-flex sv_text_container">
+                  <h3 data-text="Hospitality Ops">Hospitality Ops</h3>
+                  <p class="mb-0">Direct experience operating restaurant chains, kitchen supply chains and
+                    customer-facing dining brands.</p>
+                </div>
+              </div>
+              <a href="capabilities.html#hospitality" class="sv_btn"><i class="ph ph-arrow-up-right"></i><i
+                  class="ph ph-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <div class="col_span_2">
+            <div class="sv_item" data-hover="Market Development">
+              <div class="sv_bg"></div>
+              <img class="sv_bg_img" src="assets/images/capability_marketdev_fresh.jpg" alt="Market Development">
+              <div class="sv_content">
+                <ul class="sv_cats">
+                  <li class="sv_cat">Market Entry</li>
+                  <li class="sv_cat">Growth</li>
+                </ul>
+                <div class="d-flex sv_text_container">
+                  <h3 data-text="Market Development">Market Development</h3>
+                  <p class="mb-0">Establishing local partnerships, distribution networks, and commercially sustainable
+                    market opportunities for international brands.</p>
+                </div>
+              </div>
+              <a href="capabilities.html#market-dev" class="sv_btn"><i class="ph ph-arrow-up-right"></i><i
+                  class="ph ph-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 06. VALUE CHAIN NETWORK FLOW -->
+    <section class="skills py-24 bg_dark_primary">
+      <div class="container-fluid">
+        <div class="row align-items-end mb-12">
+          <div class="col-lg-8">
+            <p class="text-uppercase fs-5 bdx_lines_animate">(Value Chain)</p>
+            <h2 class="bdx_big_title lh-1 mb-0 bdx_lines_animate" data-delay="0.3">Connecting Supply With Demand.</h2>
+          </div>
+          <div class="col-lg-4 text-end overflow-hidden">
+            <p class="fs-4 mb-0 bdx_lines_animate bdx_sub" data-delay="0.6">
+              Our international network creates seamless connections across every level of the commercial journey.
+            </p>
+          </div>
+        </div>
+
+        <div class="skills_container">
+          <div class="skill_item">
+            <div class="skill_title d-flex gap-2">
+              <p class="text-gold">(01)</p>
+              <h3 class="mb-0">PRODUCERS</h3>
+            </div>
+            <div class="skill_detail">
+              <p class="mb-0">Farmers, growers, plantations, and raw agricultural commodity origin partners.</p>
+            </div>
+          </div>
+
+          <div class="skill_item">
+            <div class="skill_title d-flex gap-2">
+              <p class="text-gold">(02)</p>
+              <h3 class="mb-0">MANUFACTURERS & PROCESSORS</h3>
+            </div>
+            <div class="skill_detail">
+              <p class="mb-0">Industrial processing plants, food ingredient manufacturers, and FMCG factories.</p>
+            </div>
+          </div>
+
+          <div class="skill_item">
+            <div class="skill_title d-flex gap-2">
+              <p class="text-gold">(03)</p>
+              <h3 class="mb-0">STALWART GROUP</h3>
+            </div>
+            <div class="skill_detail">
+              <p class="mb-0">Central sourcing, commercial trade, logistics coordination, and supply chain management
+                engine.</p>
+            </div>
+          </div>
+
+          <div class="skill_item">
+            <div class="skill_title d-flex gap-2">
+              <p class="text-gold">(04)</p>
+              <h3 class="mb-0">IMPORTERS & DISTRIBUTORS</h3>
+            </div>
+            <div class="skill_detail">
+              <p class="mb-0">In-country commercial partners, trade hubs, and regional distribution networks.</p>
+            </div>
+          </div>
+
+          <div class="skill_item">
+            <div class="skill_title d-flex gap-2">
+              <p class="text-gold">(05)</p>
+              <h3 class="mb-0">RETAIL, HOSPITALITY & CONSUMERS</h3>
+            </div>
+            <div class="skill_detail">
+              <p class="mb-0">Hotels, restaurants, cafés, supermarkets, institutional buyers, and end consumers.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07. STATS & DIFFERENTIATORS -->
+    <section class="stats pb-24 bg_dark_secondary pt-24">
+      <div class="container-fluid">
+        <div class="row align-items-center">
+          <div class="col-lg-3">
+            <p class="text-uppercase fs-5 mb-0 bdx_subtitle">(Metrics)</p>
+          </div>
+          <div class="col-lg-7">
+            <p class="d-inline stats_author">[ Stalwart Capabilities ]</p>
+            <p class="fs-2 lh-1 mb-4 d-inline ps-4 stats_text">Building sustainable relationships that create long-term
+              value across international markets.</p>
+          </div>
+          <div class="col-lg-2 d-flex justify-content-lg-end justify-content-center">
+            <i class="ph ph-globe fs-1 icon_stats"></i>
+          </div>
+        </div>
+
+        <div class="row mt-12">
+          <div class="col-lg-10 offset-lg-2">
+            <div class="row row_animate">
+              <div class="col-lg-3 animate_col stats_col">
+                <h3 class="fs-2"><span class="stats_counter" data-target="7">0</span>+</h3>
+                <p>International Markets</p>
+              </div>
+              <div class="col-lg-3 animate_col stats_col">
+                <h3 class="fs-2"><span class="stats_counter" data-target="4">0</span></h3>
+                <p>Specialized Divisions</p>
+              </div>
+              <div class="col-lg-3 animate_col stats_col">
+                <h3 class="fs-2"><span class="stats_counter" data-target="100">0</span>%</h3>
+                <p>Traceable Supply</p>
+              </div>
+              <div class="col-lg-3 animate_col stats_col">
+                <h3 class="fs-2"><span class="stats_counter" data-target="365">0</span></h3>
+                <p>Days Trade Execution</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 08. PARTNERSHIP CALL TO ACTION -->
+    <section class="parallax py-24 d-flex align-items-center">
+      <div class="prx_img">
+        <div class="prx_img_outer">
+          <img src="assets/images/about-stalwart-architecture.jpg" alt="Partner With Stalwart Group">
+        </div>
+      </div>
+      <div class="container-fluid d-flex flex-column">
+        <div class="row align-items-end">
+          <div class="col-lg-8">
+            <p class="text-uppercase fs-5 bdx_lines_animate">(Partnerships)</p>
+            <h2 class="bdx_big_title mb-4 lh-1 bdx_lines_animate" data-delay="0.2">LET'S BUILD BUSINESS TOGETHER.</h2>
+            <p class="para_sub fs-4 w-100 mb-4 bdx_lines_animate" data-delay="0.4">
+              Whether you are a manufacturer, producer, distributor, or commercial partner, Stalwart creates connections
+              that turn opportunities into sustainable growth.
+            </p>
+            <div class="d-flex gap-4">
+              <a href="partner.html" class="btn btn-outline-light text-uppercase px-4 py-3 fw-medium">Partner With
+                Us</a>
+              <a href="contact.html" class="btn btn-gold text-dark text-uppercase px-4 py-3 fw-medium"
+                style="background-color: var(--bdx-accent-color);">Contact Team</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div><!-- /main_wrapper -->
+
+  <!-- Preloader Screen -->
+  <div class="bdx_preloader_minimal">
+    <div class="preloader_title">
+      <img src="assets/images/stalwart-lion-shield-exact.png" alt="Stalwart Lion Shield"
+        style="height: 40px; width: auto;">
+      <span>STALWART GROUP</span>
+    </div>
+    <div class="audio_bars">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+  </div>
+
+  <div class="bdx_page_transition"></div>
+  <div class="bdx_cursor"></div>
+
+  <!-- FOOTER -->
+  <footer class="py-12 bg_dark_secondary position-relative footer">
+    <div class="footer_bg"></div>
+    <div class="container-fluid position-relative z-1">
+      <div class="row align-items-center mb-4 justify-content-between">
+        <div class="col-lg-8">
+          <h2 class="bdx_big_title mb-0 lh-1">STALWART GROUP</h2>
+        </div>
+        <div class="col-lg-4">
+          <p class="fs-4 text-end mb-0 footer_desc">Building Global Trade. Creating Stronger Markets.</p>
+        </div>
+      </div>
+
+      <div class="footer_meta_container d-flex align-items-end justify-content-between">
+        <div class="footer_meta">
+          <p class="mb-0 fs-5 text-uppercase text-gold" style="color: var(--bdx-accent-color);">From Source to Market
+          </p>
+          <a href="contact.html" class="fs-3 footer_email" data-text="contact@stalwartgroup.com"
+            data-hover="Contact Us">
+            contact@stalwartgroup.com
+          </a>
+        </div>
+        <div class="footer_social">
+          <ul class="footer_social_list">
+            <li><a href="stalwart-global.html"><span class="footer_sc_text" data-text="Stalwart Global">Stalwart
+                  Global</span> <i class="ph ph-caret-right"></i></a></li>
+            <li><a href="stalwart-resources.html"><span class="footer_sc_text" data-text="Stalwart Resources">Stalwart
+                  Resources</span> <i class="ph ph-caret-right"></i></a></li>
+            <li><a href="stalwart-life-sciences.html"><span class="footer_sc_text"
+                  data-text="Stalwart Life Sciences">Stalwart Life Sciences</span> <i class="ph ph-caret-right"></i></a>
+            </li>
+            <li><a href="indian-tadka.html"><span class="footer_sc_text" data-text="Indian Tadka">Indian Tadka</span> <i
+                  class="ph ph-caret-right"></i></a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="d-flex align-items-center justify-content-between footer_copy">
+        <p class="mb-0">&copy; 2026 STALWART GROUP™ — All Rights Reserved.</p>
+        <p class="mb-0">Building Businesses Across Borders.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/vendor.js"></script>
+  <script type="module" src="js/script.js"></script>
 </body>
+
 </html>

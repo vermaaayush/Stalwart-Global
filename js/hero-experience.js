@@ -1,8 +1,8 @@
 /* ============================================================
    STALWART GROUP — ULTRA-SMOOTH CINEMATIC HERO CONTROLLER
    - Stage 01: Initial Load (Giant centered lion on pure black)
-   - Stage 02: First Scroll (Logo zooms out -> STALWART GROUP reveal)
-   - Stage 03: Second Scroll (Logo moves right -> Hero text left -> hero_bg.png)
+   - Stage 02: First Scroll (Logo zooms out & moves UP -> STALWART GROUP reveal with ZERO W overlap)
+   - Stage 03: Second Scroll (Logo glides right -> Hero text left -> Slate backdrop)
    - Continuous 3D floating animation + Interactive cursor mouse tilt
    ============================================================ */
 
@@ -17,7 +17,6 @@ export function initHeroSequence() {
   const viewport = document.getElementById('hero-viewport');
   const lionStage = document.getElementById('lion-stage');
   const lionWrapper = document.getElementById('lion-floating-wrapper');
-  const lionImg = document.getElementById('main-lion-img');
   const lionAura = document.getElementById('lion-aura');
   const brandingStage = document.getElementById('branding-stage');
   const heroContentStage = document.getElementById('hero-content-stage');
@@ -62,12 +61,12 @@ export function initHeroSequence() {
 
   gsap.set(heroTextContainer, {
     opacity: 0,
-    x: -40,
+    x: -35,
   });
 
   gsap.set(siteHeader, {
     opacity: 0,
-    y: -20,
+    y: -25,
     pointerEvents: 'none',
   });
 
@@ -75,7 +74,11 @@ export function initHeroSequence() {
     opacity: 0,
   });
 
-  // 2. Continuous Dynamic 3D Floating & Wave Motion on the Logo
+  gsap.set(scrollCue, {
+    opacity: 1,
+  });
+
+  // 2. Continuous Dynamic 3D Floating Motion on Lion
   const floatingTl = gsap.timeline({
     repeat: -1,
     yoyo: true,
@@ -84,45 +87,48 @@ export function initHeroSequence() {
 
   floatingTl
     .to(lionWrapper, {
-      y: -18,
-      rotationZ: 1.8,
-      duration: 2.2,
+      y: -14,
+      rotationZ: 1.5,
+      duration: 2.4,
     })
     .to(lionWrapper, {
-      y: 16,
-      rotationZ: -1.8,
-      duration: 2.4,
+      y: 12,
+      rotationZ: -1.5,
+      duration: 2.6,
     });
 
   gsap.to(lionAura, {
-    scale: 1.2,
+    scale: 1.25,
     opacity: 0.85,
-    duration: 2.2,
+    duration: 2.4,
     repeat: -1,
     yoyo: true,
     ease: 'sine.inOut',
   });
 
-  // 3. High-Sensitivity Interactive 3D Cursor Parallax Tilt & Depth
-  let mouseX = 0;
-  let mouseY = 0;
-
+  // 3. High-Performance rAF-Throttled Mouse Parallax Tilt
+  let mouseTicking = false;
   window.addEventListener('mousemove', (e) => {
-    const { innerWidth, innerHeight } = window;
-    mouseX = (e.clientX / innerWidth - 0.5) * 2; // Range: -1 to 1
-    mouseY = (e.clientY / innerHeight - 0.5) * 2; // Range: -1 to 1
+    if (mouseTicking) return;
+    mouseTicking = true;
+    requestAnimationFrame(() => {
+      const mouseX = (e.clientX / window.innerWidth - 0.5) * 2;
+      const mouseY = (e.clientY / window.innerHeight - 0.5) * 2;
 
-    gsap.to(lionWrapper, {
-      rotateY: mouseX * 18, // High-sensitivity 18-degree horizontal tilt
-      rotateX: -mouseY * 14, // High-sensitivity 14-degree vertical tilt
-      z: (Math.abs(mouseX) + Math.abs(mouseY)) * 30, // 3D depth expansion
-      duration: 0.35, // Fast, highly responsive follow speed
-      ease: 'power2.out',
-      overwrite: 'auto',
+      gsap.to(lionWrapper, {
+        rotateY: mouseX * 16,
+        rotateX: -mouseY * 12,
+        z: (Math.abs(mouseX) + Math.abs(mouseY)) * 24,
+        duration: 0.45,
+        ease: 'power2.out',
+        overwrite: 'auto',
+      });
+      mouseTicking = false;
     });
   }, { passive: true });
 
   // 4. Responsive Breakpoint Calculations
+  // Stage 02 logo made slightly smaller (0.46) and pushed higher upward (-115px) so it sits cleanly above "STALWART" without cutting the W
   const getResponsiveTargets = () => {
     const width = window.innerWidth;
     const height = window.innerHeight;
@@ -133,14 +139,14 @@ export function initHeroSequence() {
       isDesktop,
       isMobile,
       stage2: {
-        scale: isDesktop ? 0.44 : 0.46,
-        y: isDesktop ? -85 : -70,
-        brandingY: isDesktop ? 65 : 50,
+        scale: isDesktop ? 0.46 : 0.40,
+        y: isDesktop ? -115 : -90,
+        brandingY: isDesktop ? 80 : 65,
       },
       stage3: {
-        x: isDesktop ? (width * 0.24) : 0,
-        y: isDesktop ? 0 : (isMobile ? -height * 0.22 : -height * 0.19),
-        scale: isDesktop ? 0.82 : 0.46,
+        x: isDesktop ? (width * 0.29) : 0,
+        y: isDesktop ? 15 : (isMobile ? -height * 0.22 : -height * 0.19),
+        scale: isDesktop ? 0.54 : 0.44,
       },
     };
   };
@@ -151,7 +157,7 @@ export function initHeroSequence() {
     targets = getResponsiveTargets();
   }, { passive: true });
 
-  // 5. Master Cinematic ScrollTrigger Timeline with Viewport Pinning
+  // 5. Master Scroll-Driven GSAP ScrollTrigger Timeline
   const masterTimeline = gsap.timeline({
     scrollTrigger: {
       trigger: viewport,
@@ -159,12 +165,11 @@ export function initHeroSequence() {
       pinSpacing: true,
       anticipatePin: 1,
       start: 'top top',
-      end: '+=2400', // 2400px of smooth scroll track
-      scrub: 1.0, // Smooth physical interpolation
+      end: '+=1200', // Perfectly balanced travel distance
+      scrub: 0.3,   // Cushioned, responsive, silky-smooth tracking
       invalidateOnRefresh: true,
       onUpdate: (self) => {
-        // Enable pointer events on Stage 03 hero elements only when visible
-        if (self.progress > 0.72) {
+        if (self.progress > 0.48) {
           heroContentStage.style.pointerEvents = 'auto';
           siteHeader.style.pointerEvents = 'auto';
         } else {
@@ -176,89 +181,89 @@ export function initHeroSequence() {
   });
 
   // ══════════════════════════════════════════════════════════
-  // STAGE 02 — FIRST SCROLL (0.0 to 0.44)
-  // Lion zooms out & moves up slightly -> STALWART GROUP reveals
+  // STAGE 01 -> STAGE 02 (0.0 to 0.35) — First Scroll
+  // Lion scales down to 0.46 and elevates upward (-115px); STALWART GROUP typography reveals cleanly below
   // ══════════════════════════════════════════════════════════
   masterTimeline
-    // A. Fade out initial scroll cue
+    // Softly fade out scroll cue
     .to(scrollCue, {
       opacity: 0,
       duration: 0.08,
-      ease: 'power2.out',
+      ease: 'power1.out',
     }, 0)
 
-    // B. Lion slowly zooms out into its centered branding position
+    // Lion smoothly scales down and moves UPWARD away from STALWART text
     .to(lionStage, {
       scale: () => targets.stage2.scale,
       y: () => targets.stage2.y,
       x: 0,
-      duration: 0.40,
-      ease: 'power2.inOut',
-    }, 0.02)
+      duration: 0.35,
+      ease: 'power2.out',
+    }, 0)
 
-    // C. STALWART GROUP typography fades and rises into place
+    // STALWART GROUP typography rises and fades in smoothly below logo
     .to(brandingStage, {
       opacity: 1,
       scale: 1,
       y: () => targets.stage2.brandingY,
-      duration: 0.38,
+      duration: 0.30,
       ease: 'power2.out',
-    }, 0.06)
-
-    // D. Minimal hold / pause: the user experiences pure centered branding
-    .to({}, { duration: 0.12 }); // Holds minimal branding between 0.44 and 0.56
+    }, 0.05);
 
   // ══════════════════════════════════════════════════════════
-  // STAGE 03 — SECOND SCROLL (0.56 to 1.0)
-  // Branding dissolves -> Lion glides to Right -> Hero text Left -> hero_bg.png reveals
+  // TRANSITION: Clean Separation (0.35 to 0.48)
+  // Centered branding dissolves COMPLETELY before Stage 03 starts (Zero Overlap)
   // ══════════════════════════════════════════════════════════
   masterTimeline
-    // A. Centered STALWART GROUP branding dissolves
     .to(brandingStage, {
       opacity: 0,
       scale: 0.94,
-      y: 40,
-      duration: 0.20,
+      y: -15,
+      duration: 0.15,
       ease: 'power2.in',
-    }, 0.56)
+    }, 0.35);
 
-    // B. Architectural slate background panels (hero_bg.png) reveal
+  // ══════════════════════════════════════════════════════════
+  // STAGE 02 -> STAGE 03 (0.48 to 1.0) — Second Scroll
+  // Lion glides smoothly to right, Slate backdrop reveals, Hero text & Nav drop in
+  // ══════════════════════════════════════════════════════════
+  masterTimeline
+    // Ambient slate backdrop
     .to(heroSlateBg, {
       opacity: 1.0,
-      duration: 0.42,
-      ease: 'power2.out',
-    }, 0.56)
+      duration: 0.40,
+      ease: 'power1.out',
+    }, 0.48)
 
-    // C. Lion logo moves toward the RIGHT side (or top on mobile)
+    // Lion glides smoothly to the right
     .to(lionStage, {
       x: () => targets.stage3.x,
       y: () => targets.stage3.y,
       scale: () => targets.stage3.scale,
-      duration: 0.42,
-      ease: 'power3.inOut',
-    }, 0.58)
+      duration: 0.48,
+      ease: 'power2.inOut',
+    }, 0.48)
 
-    // D. Hero Content Stage fades in on the LEFT side with chronicle title
+    // Hero headline & content slide in from left
     .to(heroContentStage, {
       opacity: 1,
-      duration: 0.15,
-      ease: 'power1.out',
-    }, 0.62)
-
+      duration: 0.35,
+      ease: 'power2.out',
+    }, 0.52)
     .to(heroTextContainer, {
       opacity: 1,
       x: 0,
-      duration: 0.38,
+      duration: 0.40,
       ease: 'power2.out',
-    }, 0.62)
+    }, 0.52)
 
-    // E. Transparent Navigation appears smoothly at the top
+    // Site navigation drops in from top
     .to(siteHeader, {
       opacity: 1,
       y: 0,
-      duration: 0.32,
+      duration: 0.36,
       ease: 'power2.out',
-    }, 0.68);
+    }, 0.52);
 
   console.log('✨ [Stalwart Group] Cinematic Hero Sequence Ready.');
 }
