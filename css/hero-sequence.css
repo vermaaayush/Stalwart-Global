@@ -1455,13 +1455,40 @@ header.navigation .bdx_nav .has_child .child_menu:hover {
 
 .inner-page-hero {
   position: relative;
-  min-height: 54vh;
+  min-height: 42vh;
   display: flex;
   align-items: center;
-  padding-top: 155px;
-  padding-bottom: 85px;
+  padding-top: 130px;
+  padding-bottom: 50px;
   background-color: #050505;
   overflow: hidden;
+}
+
+/* ── Compact Global Section Padding & Margins Override ── */
+.py-24 {
+  padding-top: 4.25rem !important;
+  padding-bottom: 4.25rem !important;
+}
+
+.py-20 {
+  padding-top: 3.5rem !important;
+  padding-bottom: 3.5rem !important;
+}
+
+.pt-20 {
+  padding-top: 3.5rem !important;
+}
+
+.pb-12, .pb-16 {
+  padding-bottom: 2.75rem !important;
+}
+
+.mb-16 {
+  margin-bottom: 2.25rem !important;
+}
+
+.mb-12 {
+  margin-bottom: 1.75rem !important;
 }
 
 .inner-hero-bg {
@@ -1717,34 +1744,128 @@ header.navigation .bdx_nav .has_child .child_menu:hover {
   margin-bottom: 8px;
 }
 
-/* Interactive Timeline / Flow Step */
+/* Redesigned 7-Stage Interactive Value Chain Pipeline Cards */
 .flow-step-card {
   position: relative;
-  padding: 26px;
-  background: rgba(18, 20, 26, 0.7);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 8px;
-  transition: all 0.3s ease;
+  padding: 30px 26px;
+  background: linear-gradient(160deg, rgba(20, 23, 31, 0.92) 0%, rgba(10, 11, 15, 0.96) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 12px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.flow-step-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent 0%, rgba(239, 191, 4, 0.5) 50%, transparent 100%);
+  opacity: 0.4;
+  transition: opacity 0.35s ease, background 0.35s ease;
 }
 
 .flow-step-card:hover {
-  border-color: #EFBF04;
-  background: rgba(25, 28, 36, 0.85);
+  border-color: rgba(239, 191, 4, 0.55);
+  transform: translateY(-6px);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.75), 0 0 25px rgba(239, 191, 4, 0.12);
+  background: linear-gradient(160deg, rgba(25, 29, 40, 0.96) 0%, rgba(13, 15, 20, 0.98) 100%);
+}
+
+.flow-step-card:hover::before {
+  opacity: 1;
+  background: linear-gradient(90deg, #EFBF04 0%, #FFF 50%, #EFBF04 100%);
+}
+
+.flow-step-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
 }
 
 .flow-step-num {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: rgba(239, 191, 4, 0.15);
-  border: 1px solid #EFBF04;
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: rgba(239, 191, 4, 0.12);
+  border: 1px solid rgba(239, 191, 4, 0.4);
   color: #EFBF04;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 800;
+  font-size: 0.95rem;
+  letter-spacing: 0.05em;
+  margin-bottom: 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.flow-step-card:hover .flow-step-num {
+  background: #EFBF04;
+  color: #08090b;
+  box-shadow: 0 6px 18px rgba(239, 191, 4, 0.45);
+}
+
+.flow-step-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #EFBF04;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.35rem;
+  transition: all 0.3s ease;
+}
+
+.flow-step-card:hover .flow-step-icon {
+  background: rgba(239, 191, 4, 0.15);
+  border-color: rgba(239, 191, 4, 0.4);
+  transform: scale(1.1) rotate(4deg);
+}
+
+.flow-step-title {
+  color: #FFFFFF;
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  font-family: var(--bdx-heading-font), sans-serif;
+}
+
+.flow-step-desc {
+  color: #9E9E9E;
   font-size: 0.9rem;
-  margin-bottom: 16px;
+  line-height: 1.55;
+  margin-bottom: 0;
+  transition: color 0.3s ease;
+}
+
+.flow-step-card:hover .flow-step-desc {
+  color: #D0D0D0;
+}
+
+/* Step 07 SERVE Highlight Card */
+.flow-step-card.flow-step-featured {
+  border-color: rgba(239, 191, 4, 0.45);
+  background: linear-gradient(160deg, rgba(32, 28, 14, 0.95) 0%, rgba(14, 15, 20, 0.98) 100%);
+}
+
+.flow-step-card.flow-step-featured::before {
+  opacity: 1;
+  background: linear-gradient(90deg, #EFBF04 0%, #FFFFFF 50%, #EFBF04 100%);
 }
 
 /* Luxury Quote/Philosophy Highlight Box */
