@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="css/plugins.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/hero-sequence.css">
+  <link rel="stylesheet" href="css/source-to-market.css">
 </head>
 <body>
 
@@ -102,25 +103,135 @@
       </div>
     </section>
 
-    <!-- Four Partnership Tracks -->
-    <section class="py-24 bg_dark_secondary">
-      <div class="container-fluid">
+    <!-- Centered Partner Form Section -->
+    <section class="py-24 bg_dark_secondary position-relative overflow-hidden" id="partner-form">
+      <div class="container position-relative z-2" style="max-width: 940px;">
+        
+        <!-- Centered Header & Text -->
+        <div class="row justify-content-center text-center mb-16">
+          <div class="col-lg-10">
+            <span class="text-gold text-uppercase tracking-widest fw-semibold small d-block mb-3" style="letter-spacing: 0.35em; font-size: 0.75rem;">
+              <i class="ph ph-handshake me-1"></i> Direct Commercial Engagement
+            </span>
+            <h2 class="bdx_big_title page-reveal-heading mb-4" style="font-size: clamp(2.2rem, 4vw, 4.2rem);">
+              Initiate a Partnership Dialogue
+            </h2>
+            <p class="fs-5 text-secondary mx-auto" style="max-width: 720px; line-height: 1.7; color: #9da4b4;">
+              Submit details regarding your organization, product categories, or trade requirements. Our executive commercial desk will review your proposal and respond promptly.
+            </p>
+          </div>
+        </div>
+
+        <!-- Centered Luxury Partner Form Container -->
+        <div class="partner-form-card p-6 p-md-8 rounded-4 position-relative overflow-hidden mb-24" 
+             style="background: linear-gradient(135deg, rgba(16, 20, 28, 0.9) 0%, rgba(8, 10, 16, 0.95) 100%); border: 1px solid rgba(239, 191, 4, 0.25); box-shadow: 0 25px 60px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.08); backdrop-filter: blur(16px);">
+          
+          <!-- Top subtle gold glowing line -->
+          <div style="position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent 0%, #EFBF04 50%, transparent 100%);"></div>
+
+          <form onsubmit="event.preventDefault(); alert('Thank you for reaching out to Stalwart Group. Our partnership desk will contact you shortly.');">
+            <div class="row g-4">
+              
+              <!-- Full Name -->
+              <div class="col-md-6">
+                <label class="form-label text-gold small text-uppercase tracking-wider fw-semibold mb-2">
+                  <i class="ph ph-user me-1"></i> Full Name *
+                </label>
+                <input type="text" class="form-control custom-partner-input" placeholder="Enter your full name" required>
+              </div>
+
+              <!-- Corporate Email -->
+              <div class="col-md-6">
+                <label class="form-label text-gold small text-uppercase tracking-wider fw-semibold mb-2">
+                  <i class="ph ph-envelope-simple me-1"></i> Corporate Email *
+                </label>
+                <input type="email" class="form-control custom-partner-input" placeholder="name@company.com" required>
+              </div>
+
+              <!-- Organization -->
+              <div class="col-md-6">
+                <label class="form-label text-gold small text-uppercase tracking-wider fw-semibold mb-2">
+                  <i class="ph ph-buildings me-1"></i> Company / Organization *
+                </label>
+                <input type="text" class="form-control custom-partner-input" placeholder="Company Name" required>
+              </div>
+
+              <!-- Partnership Track -->
+              <div class="col-md-6">
+                <label class="form-label text-gold small text-uppercase tracking-wider fw-semibold mb-2">
+                  <i class="ph ph-path me-1"></i> Partnership Track *
+                </label>
+                <select class="form-select custom-partner-input" required>
+                  <option value="" disabled selected>Select partnership track...</option>
+                  <option value="supplier">Supplier / Origin Manufacturer</option>
+                  <option value="buyer">Institutional / Wholesale Buyer</option>
+                  <option value="distributor">Regional Exclusive Distributor</option>
+                  <option value="strategic">Strategic Joint Venture / Co-Investment</option>
+                  <option value="other">General Commercial Engagement</option>
+                </select>
+              </div>
+
+              <!-- Industry / Products -->
+              <div class="col-12">
+                <label class="form-label text-gold small text-uppercase tracking-wider fw-semibold mb-2">
+                  <i class="ph ph-package me-1"></i> Relevant Commodities / Industry *
+                </label>
+                <input type="text" class="form-control custom-partner-input" placeholder="e.g. Agricultural Commodities, Coffee, Food Ingredients, Hospitality Sourcing, Life Sciences" required>
+              </div>
+
+              <!-- Details & Message -->
+              <div class="col-12">
+                <label class="form-label text-gold small text-uppercase tracking-wider fw-semibold mb-2">
+                  <i class="ph ph-chat-text me-1"></i> Partnership Objective & Details *
+                </label>
+                <textarea class="form-control custom-partner-input" rows="5" placeholder="Briefly describe your company background, target regions, estimated trade volume, or partnership proposal..." required></textarea>
+              </div>
+
+              <!-- Centered Submit Button -->
+              <div class="col-12 text-center mt-6">
+                <button type="submit" class="btn-stalwart-gold py-3.5 px-6 fs-6 d-inline-flex align-items-center gap-3">
+                  Submit Proposal <i class="ph ph-paper-plane-right fs-5"></i>
+                </button>
+              </div>
+
+            </div>
+          </form>
+
+          <!-- Contact Quick Info Footer inside card -->
+          <div class="mt-8 pt-6 border-top border-secondary border-opacity-20 d-flex flex-wrap align-items-center justify-content-between text-secondary small gap-3">
+            <div class="d-flex align-items-center gap-2">
+              <i class="ph ph-envelope text-gold fs-5"></i>
+              <span class="text-white-50">partner@stalwartgroup.com</span>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <i class="ph ph-clock text-gold fs-5"></i>
+              <span class="text-white-50">Response Time: Within 1 Business Day</span>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <i class="ph ph-globe text-gold fs-5"></i>
+              <span class="text-white-50">Desks: India · China · Australia · SE Asia</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Four Partnership Tracks Header -->
         <div class="row mb-12">
           <div class="col-lg-7">
-            <span class="badge-gold-outline mb-3">Collaboration Avenues</span>
+            <span class="text-gold text-uppercase tracking-widest fw-semibold small d-block mb-3" style="letter-spacing: 0.35em; font-size: 0.75rem;">Collaboration Avenues</span>
             <h2 class="bdx_big_title page-reveal-heading" style="font-size: clamp(2rem, 3.8vw, 4.2rem);">
               Structured Partnership Channels.
             </h2>
           </div>
           <div class="col-lg-5 d-flex align-items-end">
-            <p class="text-secondary fs-5 mb-0">
+            <p class="text-secondary fs-5 mb-0" style="color: #9da4b4;">
               Stalwart Group continuously evaluates opportunities to develop long-term commercial relationships across our international trading, manufacturing, and distribution network.
             </p>
           </div>
         </div>
 
         <!-- 4 Partnership Cards Grid -->
-        <div class="row g-4 mb-20" data-stagger-cards>
+        <div class="row g-4" data-stagger-cards>
           <!-- 01. Suppliers -->
           <div class="col-lg-3 col-md-6 stagger-card-item">
             <div class="card-glass-dark">
@@ -190,75 +301,6 @@
           </div>
         </div>
 
-        <!-- Partnership Proposal Form Section -->
-        <div class="p-5 rounded bg_dark_primary border border-secondary border-opacity-25" id="partner-form">
-          <div class="row g-5">
-            <div class="col-lg-5">
-              <span class="badge-gold-outline mb-2">Direct Engagement</span>
-              <h3 class="text-white fs-2 mb-3">Initiate a Partnership Dialogue</h3>
-              <p class="text-secondary fs-5 mb-4 lh-base">
-                Submit details regarding your organization, product categories, or trade requirements. Our commercial desk will review your proposal and respond promptly.
-              </p>
-              <div class="d-flex flex-column gap-3 text-secondary small">
-                <div class="d-flex align-items-center gap-2">
-                  <i class="ph ph-envelope-simple text-gold fs-5"></i>
-                  <span>partner@stalwartgroup.com</span>
-                </div>
-                <div class="d-flex align-items-center gap-2">
-                  <i class="ph ph-globe text-gold fs-5"></i>
-                  <span>Regional Desks: India · China · Myanmar · Sri Lanka · Thailand · Australia</span>
-                </div>
-                <div class="d-flex align-items-center gap-2">
-                  <i class="ph ph-clock text-gold fs-5"></i>
-                  <span>Response Time: Typically within 1 business day</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-7">
-              <form class="p-4 rounded border border-secondary border-opacity-25 bg_dark_secondary" onsubmit="event.preventDefault(); alert('Thank you for reaching out to Stalwart Group. Our partnership desk will contact you shortly.');">
-                <div class="row g-3">
-                  <div class="col-md-6">
-                    <label class="form-label text-white small text-uppercase">Full Name *</label>
-                    <input type="text" class="form-control bg_dark_primary text-white border-secondary" placeholder="Your Name" required>
-                  </div>
-                  <div class="col-md-6">
-                    <label class="form-label text-white small text-uppercase">Corporate Email *</label>
-                    <input type="email" class="form-control bg_dark_primary text-white border-secondary" placeholder="name@company.com" required>
-                  </div>
-                  <div class="col-md-6">
-                    <label class="form-label text-white small text-uppercase">Organization / Entity *</label>
-                    <input type="text" class="form-control bg_dark_primary text-white border-secondary" placeholder="Company Name" required>
-                  </div>
-                  <div class="col-md-6">
-                    <label class="form-label text-white small text-uppercase">Partnership Track *</label>
-                    <select class="form-select bg_dark_primary text-white border-secondary" required>
-                      <option value="">Select track...</option>
-                      <option value="supplier">Supplier / Manufacturer</option>
-                      <option value="buyer">Commercial / Institutional Buyer</option>
-                      <option value="distributor">Regional Distributor</option>
-                      <option value="strategic">Strategic Alliance / Joint Venture</option>
-                      <option value="other">General Commercial Inquiry</option>
-                    </select>
-                  </div>
-                  <div class="col-12">
-                    <label class="form-label text-white small text-uppercase">Relevant Industry / Products *</label>
-                    <input type="text" class="form-control bg_dark_primary text-white border-secondary" placeholder="e.g. Coffee, Sugar, FMCG, Hospitality Procurement, Animal Nutrition" required>
-                  </div>
-                  <div class="col-12">
-                    <label class="form-label text-white small text-uppercase">Partnership Objective & Details *</label>
-                    <textarea class="form-control bg_dark_primary text-white border-secondary" rows="4" placeholder="Briefly outline your commercial capabilities, target markets, or procurement volumes..." required></textarea>
-                  </div>
-                  <div class="col-12 mt-4">
-                    <button type="submit" class="btn-stalwart-gold w-100 py-3">
-                      Submit Partnership Proposal <i class="ph ph-paper-plane-tilt ms-2"></i>
-                    </button>
-                  </div>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
 

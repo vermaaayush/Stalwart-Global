@@ -398,3 +398,35 @@
   }
 }
 
+/* ============================================================
+   CUSTOM LUXURY PARTNER FORM STYLES
+   ============================================================ */
+
+.custom-partner-input {
+  background-color: rgba(10, 13, 20, 0.8) !important;
+  border: 1px solid rgba(239, 191, 4, 0.2) !important;
+  border-radius: 8px !important;
+  color: #ffffff !important;
+  padding: 14px 20px !important;
+  font-size: 0.95rem !important;
+  transition: all 0.3s ease !important;
+}
+
+.custom-partner-input:focus {
+  background-color: rgba(14, 18, 28, 0.95) !important;
+  border-color: #EFBF04 !important;
+  box-shadow: 0 0 16px rgba(239, 191, 4, 0.25) !important;
+  color: #ffffff !important;
+  outline: none !important;
+}
+
+.custom-partner-input::placeholder {
+  color: #6b7280 !important;
+}
+
+select.custom-partner-input option {
+  background-color: #0d0e12 !important;
+  color: #ffffff !important;
+}
+
+
