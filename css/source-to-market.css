@@ -222,6 +222,132 @@
   color: var(--color-text-secondary, #E8E8E8);
 }
 
+/* ============================================================
+   ELEGANT VERTICAL TIMELINE (MATCHING TARGET IMAGE DESIGN)
+   ============================================================ */
+
+.vertical-milestone-timeline {
+  position: relative;
+  max-width: 960px;
+  margin: 60px auto 0 auto;
+  padding: 20px 0;
+}
+
+/* Central vertical gold line */
+.timeline-center-spine {
+  position: absolute;
+  top: 10px;
+  bottom: 10px;
+  left: 50%;
+  width: 1px;
+  background: linear-gradient(180deg, rgba(239, 191, 4, 0.15) 0%, rgba(239, 191, 4, 0.5) 20%, rgba(239, 191, 4, 0.5) 80%, rgba(239, 191, 4, 0.15) 100%);
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+/* Timeline row item */
+.timeline-row {
+  display: flex;
+  position: relative;
+  z-index: 2;
+  margin-bottom: 70px;
+  align-items: center;
+}
+
+.timeline-row:last-child {
+  margin-bottom: 0;
+}
+
+/* Left vs Right placement */
+.timeline-row-left {
+  flex-direction: row;
+}
+
+.timeline-row-right {
+  flex-direction: row-reverse;
+}
+
+/* Content block (takes 50% width minus space for center node) */
+.timeline-block {
+  width: calc(50% - 30px);
+}
+
+.timeline-row-left .timeline-block {
+  text-align: right;
+  padding-right: 25px;
+}
+
+.timeline-row-right .timeline-block {
+  text-align: left;
+  padding-left: 25px;
+}
+
+/* Central diamond node */
+.timeline-diamond-wrapper {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+}
+
+.timeline-diamond-node {
+  width: 11px;
+  height: 11px;
+  background-color: #EFBF04;
+  transform: rotate(45deg);
+  box-shadow: 0 0 12px rgba(239, 191, 4, 0.6);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.timeline-row:hover .timeline-diamond-node {
+  transform: rotate(45deg) scale(1.35);
+  box-shadow: 0 0 20px rgba(239, 191, 4, 0.95);
+  background-color: #ffffff;
+}
+
+/* Step Number & Typography */
+.timeline-step-num {
+  font-family: var(--font-display, 'Cinzel', 'Playfair Display', Georgia, serif);
+  font-size: 2rem;
+  font-weight: 500;
+  color: #ffffff;
+  letter-spacing: 0.05em;
+  margin-bottom: 2px;
+  line-height: 1.2;
+}
+
+.timeline-step-title {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  color: #EFBF04;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.timeline-step-desc {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 0.935rem;
+  font-weight: 300;
+  line-height: 1.65;
+  color: #9da4b4;
+  margin: 0;
+}
+
+.timeline-row-left .timeline-step-desc {
+  margin-left: auto;
+  max-width: 380px;
+}
+
+.timeline-row-right .timeline-step-desc {
+  margin-right: auto;
+  max-width: 380px;
+}
+
 /* Responsive */
 @media (max-width: 1200px) {
   .process-steps-grid {
@@ -237,4 +363,38 @@
   .process-steps-grid {
     grid-template-columns: 1fr;
   }
+
+  .timeline-center-spine {
+    left: 20px;
+  }
+  
+  .timeline-row,
+  .timeline-row-left,
+  .timeline-row-right {
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    margin-bottom: 50px;
+  }
+  
+  .timeline-diamond-wrapper {
+    left: 20px;
+  }
+  
+  .timeline-block {
+    width: calc(100% - 50px);
+  }
+  
+  .timeline-row-left .timeline-block,
+  .timeline-row-right .timeline-block {
+    text-align: left;
+    padding-left: 20px;
+    padding-right: 0;
+  }
+  
+  .timeline-row-left .timeline-step-desc,
+  .timeline-row-right .timeline-step-desc {
+    margin-left: 0;
+    margin-right: 0;
+  }
 }
+
