@@ -29,12 +29,12 @@
   --color-text-dark:       #333333;
 
   /* ── COLORS: Gold (Lion Logo & Restrained Accents ONLY) ─── */
-  --color-gold:          #C5A55A;
-  --color-gold-light:    #D4AF37;
-  --color-gold-dark:     #B8942E;
-  --color-gold-muted:    #9A7B3C;
-  --color-gold-glow:     rgba(212, 175, 55, 0.15);
-  --color-gold-glow-strong: rgba(212, 175, 55, 0.3);
+  --color-gold:          #EFBF04;
+  --color-gold-light:    #EFBF04;
+  --color-gold-dark:     #EFBF04;
+  --color-gold-muted:    #EFBF04;
+  --color-gold-glow:     rgba(239, 191, 4, 0.15);
+  --color-gold-glow-strong: rgba(239, 191, 4, 0.3);
 
   /* ── COLORS: Chronicle Text Shade Effect ─────────────────── */
   --gradient-chronicle:  linear-gradient(

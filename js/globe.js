@@ -19,11 +19,11 @@ export const DEFAULT_GLOBE_CONFIG = {
   emissive: "#040508",
   emissiveIntensity: 0.35,
   shininess: 0.98,
-  polygonColor: "rgba(228, 186, 70, 0.82)",
-  ambientLight: "#d4af37",
-  directionalLeftLight: "#ffd700",
+  polygonColor: "rgba(239, 191, 4, 0.82)",
+  ambientLight: "#EFBF04",
+  directionalLeftLight: "#EFBF04",
   directionalTopLight: "#ffffff",
-  pointLight: "#ffea75",
+  pointLight: "#EFBF04",
   arcTime: 1600,
   arcLength: 0.9,
   rings: 2,
@@ -37,25 +37,25 @@ export const DEFAULT_GLOBE_CONFIG = {
 export const STALWART_TRADE_ARCS = [
   // India <-> China (Sourcing & FMCG)
   { order: 1, startLat: 28.6139, startLng: 77.2090, endLat: 31.2304, endLng: 121.4737, arcAlt: 0.32, color: "#ffffff" },
-  { order: 1, startLat: 19.0760, startLng: 72.8777, endLat: 22.3193, endLng: 114.1694, arcAlt: 0.28, color: "#ffd700" },
+  { order: 1, startLat: 19.0760, startLng: 72.8777, endLat: 22.3193, endLng: 114.1694, arcAlt: 0.28, color: "#EFBF04" },
   // India <-> Myanmar (Agricultural Commodities & Pulses)
-  { order: 2, startLat: 22.5726, startLng: 88.3639, endLat: 16.8661, endLng: 96.1951, arcAlt: 0.22, color: "#f5d77f" },
+  { order: 2, startLat: 22.5726, startLng: 88.3639, endLat: 16.8661, endLng: 96.1951, arcAlt: 0.22, color: "#EFBF04" },
   // India <-> Sri Lanka (Tea, Spices, Logistics)
   { order: 2, startLat: 13.0827, startLng: 80.2707, endLat: 6.9271, endLng: 79.8612, arcAlt: 0.16, color: "#ffffff" },
   // Thailand <-> Cambodia (Hospitality & Distribution)
-  { order: 3, startLat: 13.7563, startLng: 100.5018, endLat: 11.5564, endLng: 104.9282, arcAlt: 0.18, color: "#ffd700" },
+  { order: 3, startLat: 13.7563, startLng: 100.5018, endLat: 11.5564, endLng: 104.9282, arcAlt: 0.18, color: "#EFBF04" },
   // China <-> Australia (Livestock & Life Sciences)
-  { order: 3, startLat: 31.2304, startLng: 121.4737, endLat: -33.8688, endLng: 151.2093, arcAlt: 0.46, color: "#f5d77f" },
+  { order: 3, startLat: 31.2304, startLng: 121.4737, endLat: -33.8688, endLng: 151.2093, arcAlt: 0.46, color: "#EFBF04" },
   // India <-> Australia (International Trade Corridor)
   { order: 4, startLat: 12.9716, startLng: 77.5946, endLat: -37.8136, endLng: 144.9631, arcAlt: 0.5, color: "#ffffff" },
   // India <-> Thailand (Supply Chain)
-  { order: 4, startLat: 19.0760, startLng: 72.8777, endLat: 13.7563, endLng: 100.5018, arcAlt: 0.26, color: "#ffd700" },
+  { order: 4, startLat: 19.0760, startLng: 72.8777, endLat: 13.7563, endLng: 100.5018, arcAlt: 0.26, color: "#EFBF04" },
   // Myanmar <-> China (Cross-border Trade)
   { order: 5, startLat: 16.8661, startLng: 96.1951, endLat: 39.9042, endLng: 116.4074, arcAlt: 0.34, color: "#ffffff" },
   // India <-> Cambodia
-  { order: 5, startLat: 28.6139, startLng: 77.2090, endLat: 11.5564, endLng: 104.9282, arcAlt: 0.36, color: "#f5d77f" },
+  { order: 5, startLat: 28.6139, startLng: 77.2090, endLat: 11.5564, endLng: 104.9282, arcAlt: 0.36, color: "#EFBF04" },
   // Thailand <-> Australia
-  { order: 6, startLat: 13.7563, startLng: 100.5018, endLat: -33.8688, endLng: 151.2093, arcAlt: 0.42, color: "#ffd700" },
+  { order: 6, startLat: 13.7563, startLng: 100.5018, endLat: -33.8688, endLng: 151.2093, arcAlt: 0.42, color: "#EFBF04" },
   // Sri Lanka <-> Thailand
   { order: 6, startLat: 6.9271, startLng: 79.8612, endLat: 13.7563, endLng: 100.5018, arcAlt: 0.22, color: "#ffffff" }
 ];

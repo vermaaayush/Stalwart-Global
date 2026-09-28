@@ -29,8 +29,8 @@ export function initSplash(onEnter = null) {
   // 3. Gentle pulsing on the enter button
   if (enterBtn) {
     gsap.to(enterBtn, {
-      boxShadow: '0 0 28px rgba(212, 175, 55, 0.45)',
-      borderColor: 'rgba(212, 175, 55, 0.9)',
+      boxShadow: '0 0 28px rgba(239, 191, 4, 0.45)',
+      borderColor: 'rgba(239, 191, 4, 0.9)',
       repeat: -1,
       yoyo: true,
       duration: 1.5,

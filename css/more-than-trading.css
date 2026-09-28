@@ -159,9 +159,9 @@
 .trading-verb-card:hover {
   opacity: 1;
   transform: translateY(0);
-  border-color: rgba(212, 175, 55, 0.4);
+  border-color: rgba(239, 191, 4, 0.4);
   background: rgba(18, 18, 18, 0.7);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 20px rgba(212, 175, 55, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 20px rgba(239, 191, 4, 0.08);
 }
 
 .trading-verb-top {

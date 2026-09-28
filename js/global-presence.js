@@ -73,7 +73,7 @@ function highlightNode(countryId) {
 
 function resetNodes() {
   document.querySelectorAll('.map-node .core-dot').forEach((dot) => {
-    gsap.to(dot, { fill: '#C5A55A', r: 5, duration: 0.2 });
+    gsap.to(dot, { fill: '#EFBF04', r: 5, duration: 0.2 });
   });
 }
 

@@ -94,9 +94,9 @@
 
 .capability-card:hover {
   background: rgba(18, 18, 18, 0.85);
-  border-color: rgba(212, 175, 55, 0.4);
+  border-color: rgba(239, 191, 4, 0.4);
   transform: translateY(-3px);
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.85), 0 0 18px rgba(212, 175, 55, 0.08);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.85), 0 0 18px rgba(239, 191, 4, 0.08);
 }
 
 .capability-num {

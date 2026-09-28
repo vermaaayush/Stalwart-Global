@@ -33,8 +33,8 @@ export function initPartnerAndContact() {
       if (submitBtn) {
         const originalText = submitBtn.innerHTML;
         submitBtn.innerHTML = '<span>ENQUIRY RECEIVED &bull; THANK YOU</span>';
-        submitBtn.style.borderColor = 'var(--color-gold, #C5A55A)';
-        submitBtn.style.color = 'var(--color-gold, #C5A55A)';
+        submitBtn.style.borderColor = 'var(--color-gold, #EFBF04)';
+        submitBtn.style.color = 'var(--color-gold, #EFBF04)';
         contactForm.reset();
 
         setTimeout(() => {

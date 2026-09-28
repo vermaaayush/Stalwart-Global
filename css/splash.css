@@ -60,7 +60,7 @@
     180deg,
     transparent 0%,
     rgba(255, 255, 255, 0.08) 30%,
-    rgba(212, 175, 55, 0.12) 50%,
+    rgba(239, 191, 4, 0.12) 50%,
     rgba(255, 255, 255, 0.08) 70%,
     transparent 100%
   );
@@ -101,7 +101,7 @@
   border-radius: 50%;
   background: radial-gradient(
     circle at center,
-    rgba(212, 175, 55, 0.28) 0%,
+    rgba(239, 191, 4, 0.28) 0%,
     rgba(197, 165, 90, 0.09) 50%,
     transparent 72%
   );
@@ -118,7 +118,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.95)) drop-shadow(0 0 45px rgba(212, 175, 55, 0.35));
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.95)) drop-shadow(0 0 45px rgba(239, 191, 4, 0.35));
 }
 
 .splash-logo-img {
@@ -179,7 +179,7 @@
 /* ENTER Button */
 .splash-enter-btn {
   background: transparent;
-  border: 1px solid rgba(212, 175, 55, 0.5);
+  border: 1px solid rgba(239, 191, 4, 0.5);
   padding: 8px 30px;
   border-radius: 0;
   cursor: pointer;
@@ -190,12 +190,12 @@
   align-items: center;
   justify-content: center;
   outline: none;
-  box-shadow: 0 0 16px rgba(212, 175, 55, 0.2);
+  box-shadow: 0 0 16px rgba(239, 191, 4, 0.2);
 }
 
 .splash-enter-btn:hover {
   border-color: var(--color-gold, #C5A55A);
-  box-shadow: 0 0 24px rgba(212, 175, 55, 0.4);
+  box-shadow: 0 0 24px rgba(239, 191, 4, 0.4);
   transform: translateY(-1px);
 }
 

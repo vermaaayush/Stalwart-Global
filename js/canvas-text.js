@@ -18,14 +18,14 @@ export function initCanvasText(target) {
     const colors = rawColors ? JSON.parse(rawColors) : [
       "rgba(255, 223, 0, 1)",
       "rgba(245, 215, 127, 0.95)",
-      "rgba(212, 175, 55, 0.9)",
+      "rgba(239, 191, 4, 0.9)",
       "rgba(255, 240, 160, 0.85)",
-      "rgba(212, 175, 55, 0.75)",
+      "rgba(239, 191, 4, 0.75)",
       "rgba(245, 215, 127, 0.65)",
-      "rgba(212, 175, 55, 0.5)",
+      "rgba(239, 191, 4, 0.5)",
       "rgba(255, 223, 0, 0.4)",
       "rgba(245, 215, 127, 0.3)",
-      "rgba(212, 175, 55, 0.15)"
+      "rgba(239, 191, 4, 0.15)"
     ];
     const animationDuration = parseFloat(container.getAttribute('data-duration')) || 16;
     const lineWidth = parseFloat(container.getAttribute('data-line-width')) || 1.6;

@@ -91,7 +91,7 @@ export function initBackgroundBeams() {
   radialGrad.setAttribute("gradientTransform", "translate(352 34) rotate(90) scale(555 1560.62)");
   radialGrad.innerHTML = `
     <stop offset="0.066" stop-color="#ffffff" stop-opacity="0.2" />
-    <stop offset="0.243" stop-color="#d4af37" stop-opacity="0.1" />
+    <stop offset="0.243" stop-color="#EFBF04" stop-opacity="0.1" />
     <stop offset="0.435" stop-color="#ffffff" stop-opacity="0" />
   `;
   defs.appendChild(radialGrad);
@@ -110,7 +110,7 @@ export function initBackgroundBeams() {
     linGrad.innerHTML = `
       <stop offset="0%" stop-color="#18CCFC" stop-opacity="0" />
       <stop offset="18%" stop-color="#18CCFC" stop-opacity="0.85" />
-      <stop offset="42%" stop-color="#D4AF37" stop-opacity="0.95" />
+      <stop offset="42%" stop-color="#EFBF04" stop-opacity="0.95" />
       <stop offset="70%" stop-color="#6344F5" stop-opacity="0.75" />
       <stop offset="100%" stop-color="#AE48FF" stop-opacity="0" />
     `;

@@ -111,9 +111,9 @@
   background: linear-gradient(
     90deg,
     var(--color-gold, #C5A55A) 0%,
-    #D4AF37 100%
+    #EFBF04 100%
   );
-  box-shadow: 0 0 12px rgba(212, 175, 55, 0.5);
+  box-shadow: 0 0 12px rgba(239, 191, 4, 0.5);
   transition: width 0.3s ease;
 }
 
@@ -160,7 +160,7 @@
 
 .process-step-node.is-active .process-node-bullet {
   border-color: var(--color-gold, #C5A55A);
-  box-shadow: 0 0 18px rgba(212, 175, 55, 0.4);
+  box-shadow: 0 0 18px rgba(239, 191, 4, 0.4);
   transform: scale(1.15);
 }
 
@@ -185,10 +185,10 @@
 
 .process-step-node.is-active .process-step-box,
 .process-step-node:hover .process-step-box {
-  border-color: rgba(212, 175, 55, 0.4);
+  border-color: rgba(239, 191, 4, 0.4);
   background: rgba(18, 18, 18, 0.9);
   transform: translateY(-4px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.8), 0 0 16px rgba(212, 175, 55, 0.08);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.8), 0 0 16px rgba(239, 191, 4, 0.08);
 }
 
 .process-step-order {
