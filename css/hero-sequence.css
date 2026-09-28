@@ -1402,7 +1402,7 @@ header.navigation .bdx_nav > li.active > a {
 .card-glass-dark {
   background: rgba(18, 20, 26, 0.75);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 10px;
+  border-radius: 12px;
   padding: 32px;
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
@@ -1418,14 +1418,44 @@ header.navigation .bdx_nav > li.active > a {
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.7), 0 0 25px rgba(212, 175, 55, 0.08);
 }
 
+/* Feature Media Box — 100% Filled with NO blank gaps */
+.feature-media-box {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 420px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+  background: #0d0f14;
+}
+
+.feature-media-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: brightness(0.95) saturate(1.1);
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), filter 0.7s ease;
+}
+
+.feature-media-box:hover img {
+  transform: scale(1.05);
+  filter: brightness(1.02) saturate(1.2);
+}
+
 /* Rich Colored Image Cards */
 .rich-img-card {
   position: relative;
-  border-radius: 10px;
+  border-radius: 12px;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.09);
   background: #0f1117;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .rich-img-card:hover {
@@ -1437,15 +1467,24 @@ header.navigation .bdx_nav > li.active > a {
 .rich-img-card .img-wrapper {
   position: relative;
   overflow: hidden;
-  height: 260px;
   width: 100%;
+  height: 260px;
+  flex-shrink: 0;
+}
+
+.rich-img-card.h-auto-media .img-wrapper,
+.rich-img-card.img-fill .img-wrapper {
+  height: 100%;
+  min-height: 380px;
+  flex: 1;
 }
 
 .rich-img-card .img-wrapper img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: brightness(0.92) saturate(1.1);
+  display: block;
+  filter: brightness(0.95) saturate(1.1);
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s ease;
 }
 
@@ -1455,8 +1494,65 @@ header.navigation .bdx_nav > li.active > a {
 }
 
 .rich-img-card .card-body-content {
-  padding: 24px;
+  padding: 26px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
+
+/* Premium Gold Action Button */
+.btn-stalwart-gold {
+  background: linear-gradient(135deg, #e5c358 0%, #d4af37 100%) !important;
+  color: #08090b !important;
+  font-weight: 700 !important;
+  font-size: 0.86rem !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+  padding: 14px 28px !important;
+  border-radius: 6px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 10px !important;
+  text-decoration: none !important;
+  border: none !important;
+  box-shadow: 0 4px 18px rgba(212, 175, 55, 0.35) !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  white-space: nowrap !important;
+}
+
+.btn-stalwart-gold:hover {
+  background: linear-gradient(135deg, #f7db87 0%, #e2be48 100%) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 26px rgba(212, 175, 55, 0.55) !important;
+  color: #08090b !important;
+}
+
+.btn-stalwart-outline {
+  background: transparent !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(212, 175, 55, 0.5) !important;
+  font-weight: 700 !important;
+  font-size: 0.86rem !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+  padding: 14px 28px !important;
+  border-radius: 6px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 10px !important;
+  text-decoration: none !important;
+  transition: all 0.3s ease !important;
+}
+
+.btn-stalwart-outline:hover {
+  background: rgba(212, 175, 55, 0.15) !important;
+  border-color: #d4af37 !important;
+  color: #d4af37 !important;
+  transform: translateY(-2px) !important;
+}
+
 
 /* Feature Badge */
 .badge-gold-outline {
