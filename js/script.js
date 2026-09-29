@@ -187,30 +187,57 @@ function initPageAnimations() {
 }
 
 /**
- * Mobile Navigation Menu Handler
+ * Mobile Navigation Side Drawer Handler
  */
 function initMobileNav() {
-  const toggleBtn = document.getElementById('mobile-toggle');
+  const toggleBtns = document.querySelectorAll('#mobile-toggle, .mobile_menu_toggle');
   const mobileMenu = document.querySelector('.mobile_menu');
-  if (!toggleBtn || !mobileMenu) return;
+  if (!toggleBtns.length || !mobileMenu) return;
 
-  toggleBtn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    const isOpen = mobileMenu.style.display === 'block';
-    if (isOpen) {
-      mobileMenu.style.display = 'none';
-      mobileMenu.style.opacity = '0';
+  function toggleMenu(show) {
+    const isShowing = typeof show === 'boolean' ? show : !mobileMenu.classList.contains('is-open');
+    if (isShowing) {
+      mobileMenu.classList.add('is-open');
+      toggleBtns.forEach(btn => btn.classList.add('is-active'));
+      document.body.classList.add('mobile-menu-open');
     } else {
-      mobileMenu.style.display = 'block';
-      mobileMenu.style.opacity = '1';
+      mobileMenu.classList.remove('is-open');
+      toggleBtns.forEach(btn => btn.classList.remove('is-active'));
+      document.body.classList.remove('mobile-menu-open');
+    }
+  }
+
+  toggleBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      toggleMenu();
+    });
+  });
+
+  // Close menu when clicking outside on backdrop
+  document.addEventListener('click', (e) => {
+    if (mobileMenu.classList.contains('is-open')) {
+      let isClickInside = false;
+      toggleBtns.forEach(btn => {
+        if (btn.contains(e.target)) isClickInside = true;
+      });
+      if (!isClickInside && !mobileMenu.contains(e.target)) {
+        toggleMenu(false);
+      }
     }
   });
 
-  document.addEventListener('click', (e) => {
-    if (!toggleBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
-      mobileMenu.style.display = 'none';
-      mobileMenu.style.opacity = '0';
-    }
+  // Close menu when clicking navigation links inside side drawer
+  const navLinks = mobileMenu.querySelectorAll('a');
+  navLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      // If it's a anchor link or direct page navigation, close side drawer
+      const href = link.getAttribute('href');
+      if (href && href !== '#') {
+        toggleMenu(false);
+      }
+    });
   });
 }
 
