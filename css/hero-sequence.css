@@ -278,25 +278,113 @@ header.navigation .container-fluid {
   justify-content: flex-end !important;
 }
 
-.site-header .bdx_nav,
-header.navigation .bdx_nav {
-  position: relative !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: flex-end !important;
-  margin: 0 0 0 auto !important;
-  padding: 0 !important;
-  list-style: none !important;
-  border-radius: 4px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4) !important;
-  background: transparent !important;
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
-  border: none !important;
-  overflow: visible;
-  transform: none !important;
-  transition: none !important;
-  gap: 0 !important;
+@media (min-width: 992px) {
+  .site-header .bdx_nav,
+  header.navigation .bdx_nav {
+    position: relative !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    margin: 0 0 0 auto !important;
+    padding: 0 !important;
+    list-style: none !important;
+    border-radius: 4px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4) !important;
+    background: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border: none !important;
+    overflow: visible;
+    transform: none !important;
+    transition: none !important;
+    gap: 0 !important;
+  }
+}
+
+/* ── Mobile Navigation (<992px): Hide desktop pill nav & style sleek mobile drawer ── */
+@media (max-width: 991px) {
+  .site-header .bdx_nav,
+  header.navigation .bdx_nav {
+    display: none !important;
+  }
+
+  .mobile_menu_container {
+    display: flex !important;
+    position: relative !important;
+    margin-left: auto !important;
+    z-index: 1060 !important;
+  }
+
+  .mobile_menu {
+    position: absolute !important;
+    top: calc(100% + 10px) !important;
+    right: 0 !important;
+    width: clamp(260px, 80vw, 320px) !important;
+    background: #0d0e12 !important;
+    border: 1px solid rgba(239, 191, 4, 0.35) !important;
+    border-radius: 8px !important;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.95), 0 0 20px rgba(239, 191, 4, 0.1) !important;
+    padding: 10px 0 !important;
+    z-index: 1070 !important;
+  }
+
+  .mobile_menu .mobile_menu_nav {
+    display: flex !important;
+    flex-direction: column !important;
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .mobile_menu .mobile_menu_nav > li {
+    display: block !important;
+    width: 100% !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+  }
+
+  .mobile_menu .mobile_menu_nav > li:last-child {
+    border-bottom: none !important;
+  }
+
+  .mobile_menu .mobile_menu_nav a {
+    display: block !important;
+    padding: 12px 20px !important;
+    color: #FFFFFF !important;
+    font-family: var(--font-body), 'Google Sans Flex', sans-serif !important;
+    font-size: 0.85rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.08em !important;
+    text-transform: uppercase !important;
+    text-decoration: none !important;
+    transition: background 0.2s ease, color 0.2s ease !important;
+  }
+
+  .mobile_menu .mobile_menu_nav a:hover,
+  .mobile_menu .mobile_menu_nav li.active > a {
+    background: rgba(239, 191, 4, 0.12) !important;
+    color: #EFBF04 !important;
+  }
+
+  .mobile_menu .mobile_menu_nav .child_menu {
+    background: rgba(5, 5, 5, 0.6) !important;
+    list-style: none !important;
+    padding: 0 0 0 15px !important;
+    margin: 0 !important;
+    display: block !important;
+    height: auto !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  .mobile_menu .mobile_menu_nav .child_menu a {
+    font-size: 0.78rem !important;
+    color: #AAAAAA !important;
+    padding: 8px 15px !important;
+  }
+
+  .mobile_menu .mobile_menu_nav .child_menu a:hover {
+    color: #EFBF04 !important;
+  }
 }
 
 /* Prevent Boedoxol vendor header-hidden from pulling header offscreen on scroll for inner pages */
