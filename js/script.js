@@ -195,60 +195,113 @@ function initMobileNav() {
 
   if (!mobileMenu) return;
 
-  // Auto-populate mobile_menu if empty
-  if (!mobileMenu.querySelector('a')) {
-    mobileMenu.innerHTML = `
-      <ul class="mobile_menu_nav list-unstyled mb-0">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li class="has_child">
-          <a href="#">Our Companies</a>
-          <ul class="child_menu">
-            <li><a href="stalwart-global.html">Stalwart Global</a></li>
-            <li><a href="stalwart-resources.html">Stalwart Resources</a></li>
-            <li><a href="stalwart-life-sciences.html">Stalwart Life Sciences</a></li>
-            <li><a href="indian-tadka.html">Indian Tadka</a></li>
-          </ul>
-        </li>
-        <li class="has_child">
-          <a href="#">Capabilities</a>
-          <ul class="child_menu">
-            <li><a href="capabilities.html#sourcing">Global Sourcing</a></li>
-            <li><a href="capabilities.html#trade">International Trade</a></li>
-            <li><a href="capabilities.html#supply-chain">Supply Chain</a></li>
-            <li><a href="capabilities.html#logistics">Logistics Coordination</a></li>
-            <li><a href="capabilities.html#distribution">Wholesale & Distribution</a></li>
-            <li><a href="capabilities.html#hospitality">Hospitality Operations</a></li>
-            <li><a href="capabilities.html#market-dev">Market Development</a></li>
-          </ul>
-        </li>
-        <li><a href="global-presence.html">Global Presence</a></li>
-        <li><a href="partner.html">Partner With Us</a></li>
-      </ul>
-    `;
+  // Move mobile_menu directly to document.body to avoid header stacking context & backdrop-filter clipping
+  if (mobileMenu.parentNode !== document.body) {
+    document.body.appendChild(mobileMenu);
   }
 
-  if (!toggleBtns.length) return;
+  // Ensure dedicated backdrop element exists on body (behind drawer)
+  let backdrop = document.querySelector('.mobile-menu-backdrop');
+  if (!backdrop) {
+    backdrop = document.createElement('div');
+    backdrop.className = 'mobile-menu-backdrop';
+    document.body.appendChild(backdrop);
+  }
+
+  // Add header with close button if not present
+  if (!mobileMenu.querySelector('.mobile_menu_header')) {
+    const headerEl = document.createElement('div');
+    headerEl.className = 'mobile_menu_header';
+    headerEl.innerHTML = `
+      <div class="mobile_menu_brand">
+        <span>STALWART GROUP</span>
+      </div>
+      <button type="button" class="mobile_menu_close" aria-label="Close menu">&times;</button>
+    `;
+    mobileMenu.insertBefore(headerEl, mobileMenu.firstChild);
+  }
+
+  // Auto-populate navigation list if empty
+  if (!mobileMenu.querySelector('.mobile_menu_nav')) {
+    const navEl = document.createElement('ul');
+    navEl.className = 'mobile_menu_nav list-unstyled mb-0';
+    navEl.innerHTML = `
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li class="has_child">
+        <a href="#">Our Companies</a>
+        <ul class="child_menu">
+          <li><a href="stalwart-global.html">Stalwart Global</a></li>
+          <li><a href="stalwart-resources.html">Stalwart Resources</a></li>
+          <li><a href="stalwart-life-sciences.html">Stalwart Life Sciences</a></li>
+          <li><a href="indian-tadka.html">Indian Tadka</a></li>
+        </ul>
+      </li>
+      <li class="has_child">
+        <a href="#">Capabilities</a>
+        <ul class="child_menu">
+          <li><a href="capabilities.html#sourcing">Global Sourcing</a></li>
+          <li><a href="capabilities.html#trade">International Trade</a></li>
+          <li><a href="capabilities.html#supply-chain">Supply Chain</a></li>
+          <li><a href="capabilities.html#logistics">Logistics Coordination</a></li>
+          <li><a href="capabilities.html#distribution">Wholesale & Distribution</a></li>
+          <li><a href="capabilities.html#hospitality">Hospitality Operations</a></li>
+          <li><a href="capabilities.html#market-dev">Market Development</a></li>
+        </ul>
+      </li>
+      <li><a href="global-presence.html">Global Presence</a></li>
+      <li><a href="partner.html">Partner With Us</a></li>
+    `;
+    mobileMenu.appendChild(navEl);
+  }
+
+  // Add footer CTA if not present
+  if (!mobileMenu.querySelector('.mobile_menu_footer')) {
+    const footerEl = document.createElement('div');
+    footerEl.className = 'mobile_menu_footer';
+    footerEl.innerHTML = `
+      <a href="partner.html" class="mobile_menu_cta">Partner With Us</a>
+    `;
+    mobileMenu.appendChild(footerEl);
+  }
 
   function toggleMenu(show) {
     const isShowing = typeof show === 'boolean' ? show : !mobileMenu.classList.contains('is-open');
     if (isShowing) {
       mobileMenu.classList.add('is-open');
+      backdrop.classList.add('is-active');
       toggleBtns.forEach(btn => btn.classList.add('is-active'));
       document.body.classList.add('mobile-menu-open');
     } else {
       mobileMenu.classList.remove('is-open');
+      backdrop.classList.remove('is-active');
       toggleBtns.forEach(btn => btn.classList.remove('is-active'));
       document.body.classList.remove('mobile-menu-open');
     }
   }
 
+  // Toggle button click listener
   toggleBtns.forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
       e.stopPropagation();
       toggleMenu();
     });
+  });
+
+  // Dedicated Close button inside drawer
+  const closeBtn = mobileMenu.querySelector('.mobile_menu_close');
+  if (closeBtn) {
+    closeBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      toggleMenu(false);
+    });
+  }
+
+  // Backdrop click listener to close menu
+  backdrop.addEventListener('click', () => {
+    toggleMenu(false);
   });
 
   // Toggle child submenus on mobile accordion tap
@@ -264,23 +317,10 @@ function initMobileNav() {
     });
   });
 
-  // Close menu when clicking backdrop overlay
-  document.addEventListener('click', (e) => {
-    if (mobileMenu.classList.contains('is-open')) {
-      let isClickInside = false;
-      toggleBtns.forEach(btn => {
-        if (btn.contains(e.target)) isClickInside = true;
-      });
-      if (!isClickInside && !mobileMenu.contains(e.target)) {
-        toggleMenu(false);
-      }
-    }
-  });
-
   // Close menu when clicking navigation links inside drawer
   const navLinks = mobileMenu.querySelectorAll('a:not(.has_child > a)');
   navLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
+    link.addEventListener('click', () => {
       const href = link.getAttribute('href');
       if (href && href !== '#') {
         toggleMenu(false);
