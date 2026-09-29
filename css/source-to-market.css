@@ -429,4 +429,54 @@ select.custom-partner-input option {
   color: #ffffff !important;
 }
 
+/* Refined Dark Contact Input Styles (Minimal Yellow) */
+.custom-contact-input {
+  background-color: rgba(12, 16, 24, 0.75) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  border-radius: 8px !important;
+  color: #f1f5f9 !important;
+  padding: 13px 18px !important;
+  font-size: 0.935rem !important;
+  transition: all 0.3s ease !important;
+}
+
+.custom-contact-input:focus {
+  background-color: rgba(16, 21, 31, 0.95) !important;
+  border-color: rgba(239, 191, 4, 0.6) !important;
+  box-shadow: 0 0 12px rgba(239, 191, 4, 0.15) !important;
+  color: #ffffff !important;
+  outline: none !important;
+}
+
+.custom-contact-input::placeholder {
+  color: #64748b !important;
+}
+
+select.custom-contact-input option {
+  background-color: #0f131c !important;
+  color: #f1f5f9 !important;
+}
+
+/* Luxury Footer Links */
+.footer-link {
+  color: #9da4b4 !important;
+  text-decoration: none !important;
+  transition: color 0.3s ease, transform 0.3s ease !important;
+  display: inline-block !important;
+}
+
+.footer-link:hover {
+  color: #EFBF04 !important;
+  transform: translateX(3px) !important;
+}
+
+.footer-email-link {
+  color: #ffffff !important;
+  transition: color 0.3s ease !important;
+}
+
+.footer-email-link:hover {
+  color: #EFBF04 !important;
+}
+
 

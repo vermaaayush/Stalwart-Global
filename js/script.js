@@ -23,7 +23,7 @@ function initStackedCards() {
 
     gsap.to(inner, {
       scale: 0.94,
-      filter: 'brightness(0.75)',
+      filter: 'brightness(0.85)',
       transformOrigin: '50% 0%',
       ease: 'none',
       scrollTrigger: {
@@ -163,6 +163,26 @@ function initPageAnimations() {
         }
       }
     );
+  });
+
+  // Smooth Counter Animation for Metrics Section
+  const counters = document.querySelectorAll('.stats_counter');
+  counters.forEach((counter) => {
+    const target = parseFloat(counter.getAttribute('data-target')) || 0;
+    const obj = { val: 0 };
+    gsap.to(obj, {
+      val: target,
+      duration: 1.8,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: counter,
+        start: 'top 88%',
+        toggleActions: 'play none none none'
+      },
+      onUpdate: () => {
+        counter.textContent = Math.floor(obj.val);
+      }
+    });
   });
 }
 

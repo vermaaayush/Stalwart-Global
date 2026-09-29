@@ -165,11 +165,13 @@ export function initHeroSequence() {
       scrub: 0.3,   // Cushioned, responsive, silky-smooth tracking
       invalidateOnRefresh: true,
       onUpdate: (self) => {
-        if (self.progress > 0.48) {
+        if (self.progress >= 0.48) {
           heroContentStage.style.pointerEvents = 'auto';
+          siteHeader.style.pointerEvents = 'auto';
           siteHeader.classList.add('is-stage3-active');
         } else {
           heroContentStage.style.pointerEvents = 'none';
+          siteHeader.style.pointerEvents = 'none';
           siteHeader.classList.remove('is-stage3-active');
         }
       },
@@ -251,7 +253,18 @@ export function initHeroSequence() {
       x: 0,
       duration: 0.40,
       ease: 'power2.out',
-    }, 0.52);
+    }, 0.52)
+
+    // Site navigation drops in from top smoothly at Stage 03 start
+    .to(siteHeader, {
+      opacity: 1,
+      y: 0,
+      duration: 0.30,
+      ease: 'power2.out',
+    }, 0.48);
+
+
+
 
   console.log('✨ [Stalwart Group] GSAP Hero Sequence Controller Ready.');
 }

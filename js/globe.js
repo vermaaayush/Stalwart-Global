@@ -11,19 +11,19 @@ import countriesData from '../data/globe.json';
 const RING_PROPAGATION_SPEED = 2.5;
 
 export const DEFAULT_GLOBE_CONFIG = {
-  pointSize: 1.6,
-  globeColor: "#06070a",
+  pointSize: 1.8,
+  globeColor: "#0b0d14",
   showAtmosphere: true,
-  atmosphereColor: "#e5b83b",
-  atmosphereAltitude: 0.22,
-  emissive: "#040508",
-  emissiveIntensity: 0.35,
-  shininess: 0.98,
-  polygonColor: "rgba(239, 191, 4, 0.82)",
-  ambientLight: "#EFBF04",
-  directionalLeftLight: "#EFBF04",
+  atmosphereColor: "#ffdf00",
+  atmosphereAltitude: 0.26,
+  emissive: "#201a08",
+  emissiveIntensity: 0.85,
+  shininess: 1.2,
+  polygonColor: "rgba(255, 220, 0, 1.0)",
+  ambientLight: "#ffffff",
+  directionalLeftLight: "#ffea70",
   directionalTopLight: "#ffffff",
-  pointLight: "#EFBF04",
+  pointLight: "#ffea70",
   arcTime: 1600,
   arcLength: 0.9,
   rings: 2,
@@ -81,7 +81,7 @@ export function initInteractiveGlobe(containerId = 'globe-canvas-container') {
   renderer.setSize(width, height);
   renderer.setClearColor(0x000000, 0);
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
-  renderer.toneMappingExposure = 1.25;
+  renderer.toneMappingExposure = 1.7; // Bright, high-vibrancy exposure
 
   container.appendChild(renderer.domElement);
 
@@ -98,48 +98,53 @@ export function initInteractiveGlobe(containerId = 'globe-canvas-container') {
   controls.minPolarAngle = Math.PI / 3.6;
   controls.maxPolarAngle = Math.PI - Math.PI / 3;
 
-  // 4. Lighting (Warm Gold Ambient & Rim Highlights)
-  const ambientLight = new THREE.AmbientLight(DEFAULT_GLOBE_CONFIG.ambientLight, 1.3);
+  // 4. Lighting (Enhanced Brightness & Illumination)
+  const ambientLight = new THREE.AmbientLight(0xffffff, 2.5);
   scene.add(ambientLight);
 
-  const dirLeft = new THREE.DirectionalLight(DEFAULT_GLOBE_CONFIG.directionalLeftLight, 1.6);
-  dirLeft.position.set(-300, 120, 300);
+  const dirLeft = new THREE.DirectionalLight('#ffea70', 3.0);
+  dirLeft.position.set(-300, 150, 300);
   scene.add(dirLeft);
 
-  const dirRightRim = new THREE.DirectionalLight('#ffdf00', 3.0);
-  dirRightRim.position.set(380, 50, 180);
+  const dirRightRim = new THREE.DirectionalLight('#ffdf00', 4.5);
+  dirRightRim.position.set(380, 80, 200);
   scene.add(dirRightRim);
 
-  const dirTop = new THREE.DirectionalLight(DEFAULT_GLOBE_CONFIG.directionalTopLight, 1.4);
-  dirTop.position.set(-100, 450, 200);
+  const dirTop = new THREE.DirectionalLight('#ffffff', 2.5);
+  dirTop.position.set(-100, 450, 250);
   scene.add(dirTop);
 
-  const pointLight = new THREE.PointLight(DEFAULT_GLOBE_CONFIG.pointLight, 2.0);
+  const pointLight = new THREE.PointLight('#ffea70', 3.5);
   pointLight.position.set(180, 250, 220);
   scene.add(pointLight);
 
-  // Stalwart operating countries — only these 7 get gold highlight & 3D altitude
+  // Stalwart operating countries — India, China, Myanmar, Sri Lanka, Cambodia, Thailand, Australia
   const STALWART_COUNTRIES = new Set([
-    'India', 'China', 'Myanmar', 'Sri Lanka', 'Cambodia', 'Thailand', 'Australia'
+    'India', 'China', 'Myanmar', 'Sri Lanka', 'Cambodia', 'Thailand', 'Australia',
+    'United Republic of Tanzania', 'Viet Nam', 'Lao PDR'
   ]);
+
+  const isStalwartCountry = (d) => {
+    const p = d.properties || {};
+    const name = p.NAME || p.ADMIN || p.SOVEREIGNT || p.NAME_LONG || '';
+    const iso = p.ISO_A3 || p.ADM0_A3 || '';
+    return STALWART_COUNTRIES.has(name) || ['IND', 'CHN', 'MMR', 'LKA', 'KHM', 'THA', 'AUS'].includes(iso);
+  };
 
   // 5. ThreeGlobe Construction
   const globe = new ThreeGlobe()
     .hexPolygonsData(countriesData.features || [])
     .hexPolygonResolution(3)
-    .hexPolygonMargin(0.7)
+    .hexPolygonMargin(0.4)
     .showAtmosphere(true)
-    .atmosphereColor('#f0c430')
-    .atmosphereAltitude(0.24)
-    .hexPolygonAltitude(d => {
-      const name = d.properties?.NAME || d.properties?.ADMIN || d.properties?.SOVEREIGNT || d.properties?.NAME_LONG || '';
-      return STALWART_COUNTRIES.has(name) ? 0.04 : 0.005;
-    })
+    .atmosphereColor('#ffdb4d')
+    .atmosphereAltitude(0.26)
+    .hexPolygonAltitude(d => isStalwartCountry(d) ? 0.05 : 0.015)
     .hexPolygonColor(d => {
-      const name = d.properties?.NAME || d.properties?.ADMIN || d.properties?.SOVEREIGNT || d.properties?.NAME_LONG || '';
-      return STALWART_COUNTRIES.has(name)
-        ? 'rgba(255, 215, 0, 1.0)'     // Vivid metallic gold highlight for Stalwart countries
-        : 'rgba(165, 190, 220, 0.28)';  // Clear, visible slate-silver map polygons for full world
+      if (isStalwartCountry(d)) {
+        return 'rgba(255, 220, 0, 1.0)'; // Super bright radiant electric gold
+      }
+      return 'rgba(240, 225, 170, 0.82)'; // High-visibility bright glowing golden-white map polygons for all world countries
     });
 
   // Initial rotation: face India (lat 20.6° N, lon 79.0° E) & Asia directly dead-center front
