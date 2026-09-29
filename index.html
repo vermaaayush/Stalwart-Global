@@ -38,6 +38,21 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/hero-sequence.css">
 
+  <!-- Native ES Module Fallback Import Map for Direct Web Hosting (e.g. Hostinger) -->
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+      "three/examples/jsm/controls/OrbitControls.js": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/controls/OrbitControls.js",
+      "three-globe": "https://cdn.jsdelivr.net/npm/three-globe@2.31.0/dist/three-globe.module.js",
+      "gsap": "https://cdn.jsdelivr.net/npm/gsap@3.12.5/index.js",
+      "gsap/ScrollTrigger": "https://cdn.jsdelivr.net/npm/gsap@3.12.5/ScrollTrigger.js",
+      "lenis": "https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.mjs",
+      "split-type": "https://cdn.jsdelivr.net/npm/split-type@0.3.4/index.js"
+    }
+  }
+  </script>
+
   <!-- Structured Data: Organization & WebSite JSON-LD -->
   <script type="application/ld+json">
   {
@@ -822,7 +837,7 @@
   </footer>
 
   <!-- Scripts -->
-  <script src="js/vendor.js"></script>
+  <script type="module" src="js/vendor.js"></script>
   <script type="module" src="js/script.js"></script>
 </body>
 
