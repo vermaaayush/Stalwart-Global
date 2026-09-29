@@ -350,6 +350,10 @@
     overflow-y: auto;
   }
 
+  .slide-headline, .slide-lead, .slide-body, .slide-focus-grid {
+    max-width: 100% !important;
+  }
+
   .slide-visual-stage {
     aspect-ratio: 16 / 9;
     max-height: 260px;
@@ -357,5 +361,16 @@
 
   .slides-nav-tracker {
     right: 16px;
+  }
+}
+
+@media (max-width: 640px) {
+  .slide-focus-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .slide-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
   }
 }

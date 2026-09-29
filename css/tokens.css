@@ -55,17 +55,17 @@
   --font-display:  'Montserrat', 'Syne', -apple-system, sans-serif;
   --font-body:     'Montserrat', 'Inter', -apple-system, sans-serif;
 
-  /* ── TYPOGRAPHY: Size Scale ──────────────────────────────── */
-  --fs-xs:       0.75rem;     /* 12px  — metadata, counters */
-  --fs-sm:       0.8125rem;   /* 13px  — small labels */
-  --fs-base:     0.9375rem;   /* 15px  — body copy */
-  --fs-md:       1.125rem;    /* 18px  — large body */
-  --fs-lg:       1.5rem;      /* 24px  — sub-headings */
-  --fs-xl:       2.25rem;     /* 36px  — section titles */
-  --fs-2xl:      3.5rem;      /* 56px  — large headings */
-  --fs-3xl:      5rem;        /* 80px  — hero sub-elements */
-  --fs-display:  8vw;         /* ~120px+ — STALWART hero */
-  --fs-display-sm: 6vw;       /* smaller display fallback */
+  /* ── TYPOGRAPHY: Size Scale (Fluid Clamp) ──────────────────── */
+  --fs-xs:         clamp(0.75rem, 0.85vw, 0.8125rem); /* 12px-13px */
+  --fs-sm:         clamp(0.8125rem, 1vw, 0.875rem);   /* 13px-14px */
+  --fs-base:       clamp(0.9rem, 1.1vw, 1rem);        /* 14.4px-16px */
+  --fs-md:         clamp(1rem, 1.3vw, 1.18rem);       /* 16px-19px */
+  --fs-lg:         clamp(1.2rem, 2vw, 1.5rem);        /* 19px-24px */
+  --fs-xl:         clamp(1.5rem, 3vw, 2.25rem);       /* 24px-36px */
+  --fs-2xl:        clamp(2rem, 4.5vw, 3.5rem);        /* 32px-56px */
+  --fs-3xl:        clamp(2.5rem, 6vw, 5rem);          /* 40px-80px */
+  --fs-display:    clamp(2.8rem, 8vw, 7.5rem);        /* ~45px-120px */
+  --fs-display-sm: clamp(2.2rem, 5.5vw, 4.5rem);
 
   /* ── TYPOGRAPHY: Font Weights ────────────────────────────── */
   --fw-light:    300;

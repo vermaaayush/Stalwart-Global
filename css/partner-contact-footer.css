@@ -410,19 +410,42 @@
   }
 }
 
+@media (max-width: 768px) {
+  .section-partner, .section-contact {
+    padding: clamp(60px, 10vh, 100px) 0;
+  }
+  .partner-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .partner-label {
+    letter-spacing: 0.12em;
+  }
+  .contact-hub-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+  .contact-form-wrap {
+    padding: clamp(20px, 5vw, 36px);
+  }
+}
+
 @media (max-width: 640px) {
   .partner-grid {
     grid-template-columns: 1fr;
   }
   .footer-top {
     grid-template-columns: 1fr;
+    gap: 30px;
   }
   .footer-bottom {
     flex-direction: column;
     gap: 12px;
     text-align: center;
   }
-  .contact-form-wrap {
-    padding: 24px;
+  .form-input, .form-select, .form-textarea {
+    font-size: 16px !important; /* Prevents auto-zoom on iOS */
   }
 }

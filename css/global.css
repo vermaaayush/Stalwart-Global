@@ -126,6 +126,29 @@ body {
   grid-template-columns: 1.5fr 1fr;
 }
 
+@media (max-width: 1024px) {
+  .grid--4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .grid--asymmetric,
+  .grid--asymmetric-reverse {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .grid--2,
+  .grid--3,
+  .grid--4 {
+    grid-template-columns: 1fr !important;
+  }
+
+  .section {
+    padding-top: clamp(3.5rem, 8vh, 6rem);
+    padding-bottom: clamp(3.5rem, 8vh, 6rem);
+  }
+}
+
 /* ── Flex Utility ─────────────────────────────────────────── */
 .flex {
   display: flex;

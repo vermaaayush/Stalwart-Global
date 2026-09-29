@@ -176,8 +176,23 @@
 }
 
 
+/* Global Text Wrapping & Readability Standard */
+h1, h2, h3, h4, h5, h6,
+.text-display, .text-h1, .text-h2, .text-h3, .text-subtitle,
+.card__title, .section__title, .hero-title, .hero-subheading {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  hyphens: manual;
+}
+
+p, .text-body, .text-body-lg, .card__text, .lead, .hero-lead {
+  max-width: 65ch;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
 /* ============================================================
-   RESPONSIVE TYPOGRAPHY
+   RESPONSIVE TYPOGRAPHY & SCALING
    ============================================================ */
 
 @media (max-width: 1280px) {
@@ -191,16 +206,50 @@
 
 @media (max-width: 768px) {
   .text-display {
-    font-size: clamp(2.5rem, 12vw, 5rem);
+    font-size: clamp(2.2rem, 10vw, 4.2rem);
+    letter-spacing: 0.04em !important;
   }
   .text-h1 {
     font-size: clamp(1.75rem, 6vw, 2.5rem);
+    letter-spacing: 0.04em !important;
   }
   .text-h2 {
     font-size: clamp(1.25rem, 4vw, 2rem);
+    letter-spacing: 0.04em !important;
+  }
+  .text-h3 {
+    font-size: clamp(1.05rem, 3.2vw, 1.35rem);
   }
   .text-subtitle {
-    font-size: var(--fs-base);
-    letter-spacing: var(--ls-ultra-wide);
+    font-size: clamp(0.85rem, 2.5vw, 1rem);
+    letter-spacing: 0.15em !important;
+  }
+  .text-label, .text-meta, .section__number, .section__label {
+    letter-spacing: 0.12em !important;
+  }
+  p, .text-body, .text-body-lg, .card__text, .lead, .hero-lead {
+    max-width: 100% !important;
+    font-size: clamp(0.875rem, 3.8vw, 1rem);
+    line-height: 1.65;
+  }
+}
+
+@media (max-width: 480px) {
+  .text-display {
+    font-size: clamp(1.8rem, 11vw, 2.8rem);
+    letter-spacing: 0.02em !important;
+  }
+  .text-h1 {
+    font-size: clamp(1.4rem, 7.5vw, 2rem);
+  }
+  .text-h2 {
+    font-size: clamp(1.15rem, 5.5vw, 1.5rem);
+  }
+  .text-subtitle {
+    letter-spacing: 0.12em !important;
+  }
+  .text-label, .text-meta {
+    font-size: 0.75rem !important; /* never below 12px */
+    letter-spacing: 0.1em !important;
   }
 }

@@ -194,9 +194,15 @@
 /* ── Card ─────────────────────────────────────────────────── */
 .card {
   border: var(--border-thin);
-  padding: var(--space-lg);
+  padding: clamp(1.2rem, 3vw, var(--space-lg));
   position: relative;
+  height: auto !important;
+  min-height: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   transition: border-color var(--transition-normal);
+  overflow: visible;
 }
 
 .card:hover {
@@ -211,10 +217,53 @@
   margin-bottom: var(--space-sm);
   letter-spacing: var(--ls-wide);
   text-transform: uppercase;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .card__text {
   font-size: var(--fs-sm);
   color: var(--color-text-muted);
   line-height: var(--lh-relaxed);
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+/* ── Responsive Component Rules ───────────────────────────── */
+@media (max-width: 768px) {
+  .btn {
+    padding: var(--space-xs) var(--space-sm);
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    max-width: 100%;
+    justify-content: center;
+  }
+
+  .btn-circle {
+    gap: 8px;
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+  }
+
+  .btn-circle__icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .input, .input--textarea {
+    font-size: 16px !important; /* Prevents auto-zoom on iOS Safari */
+  }
+}
+
+@media (max-width: 480px) {
+  .btn--full-mobile {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+  }
+
+  .card {
+    padding: 1.25rem;
+  }
 }

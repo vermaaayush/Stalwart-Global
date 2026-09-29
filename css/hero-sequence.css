@@ -2507,9 +2507,76 @@ header.navigation .bdx_nav .has_child .child_menu:hover {
   margin-top: 10px;
 }
 
-.stat-desc {
-  font-size: 0.9rem;
-  line-height: 1.5;
+/* Responsive Text & Card Adaptation Standard */
+.branding-title, .branding-subtitle, .stat-number, .stat-label, .stat-desc {
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+@media (max-width: 768px) {
+  .branding-title {
+    font-size: clamp(2rem, 11vw, 3.8rem);
+    letter-spacing: 0.08em;
+  }
+
+  .branding-subtitle {
+    font-size: clamp(0.75rem, 3.2vw, 1.1rem);
+    letter-spacing: 0.35em;
+    text-indent: 0.35em;
+  }
+
+  .hero-content-stage {
+    padding: 0 20px;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .hero-text-container {
+    max-width: 100% !important;
+  }
+
+  .stats-lion-logo {
+    height: 54px;
+  }
+
+  .lion-logo-wrapper {
+    padding: 10px 14px;
+  }
+
+  .stat-card {
+    padding: 20px 16px;
+    height: auto !important;
+  }
+
+  .metrics-ambient-glow {
+    width: 100%;
+    height: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .branding-title {
+    font-size: clamp(1.7rem, 12vw, 2.5rem);
+    letter-spacing: 0.05em;
+  }
+
+  .branding-subtitle {
+    font-size: 0.72rem;
+    letter-spacing: 0.25em;
+    text-indent: 0.25em;
+  }
+
+  .stat-number {
+    font-size: clamp(1.8rem, 8vw, 2.4rem);
+  }
+
+  .stat-label {
+    font-size: 0.85rem;
+  }
+
+  .stat-desc {
+    font-size: 0.8rem;
+  }
 }
 
 
