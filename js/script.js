@@ -69,26 +69,17 @@ function safeExec() {
   // Initialize Mobile Navigation Toggle
   initMobileNav();
 
-  try {
-    if (typeof window.runLoader === 'function') {
-      window.runLoader().then(() => {
-        try { if (typeof window.BdxInitPageAfter === 'function') window.BdxInitPageAfter(); } catch(e) {}
-        ScrollTrigger.refresh();
-      }).catch(() => {
-        ScrollTrigger.refresh();
-      });
-    } else if (typeof window.BdxInitPageAfter === 'function') {
-      window.BdxInitPageAfter();
-    }
-  } catch(e) {
-    console.warn('[Stalwart] Loader skipped:', e);
-  }
-
+  // Initialize Boedoxol Theme Core Animations (Sticky Cards, Parallax Zoom, Line Animations)
   try {
     if (typeof window.BdxInitPageBefore === 'function') {
       window.BdxInitPageBefore();
     }
-  } catch(e) {}
+    if (typeof window.BdxInitPageAfter === 'function') {
+      window.BdxInitPageAfter();
+    }
+  } catch (e) {
+    console.warn('[Stalwart] Boedoxol init warning:', e);
+  }
 
   // Initialize 3-stage GSAP Hero sequence if present
   if (document.getElementById('hero-viewport')) {
