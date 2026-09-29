@@ -573,33 +573,62 @@ body.mobile-menu-open {
 /* Submenu Accordion */
 .mobile_menu .mobile_menu_nav .child_menu {
   background: rgba(14, 16, 22, 0.95) !important;
-  border-left: 3px solid #EFBF04 !important;
+  border-left: 2px solid #EFBF04 !important;
   list-style: none !important;
-  padding: 6px 0 !important;
+  padding: 0 !important;
   margin: 0 0 8px 22px !important;
   display: none !important;
+  height: 0 !important;
+  max-height: 0 !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  overflow: hidden !important;
   flex-direction: column !important;
   gap: 2px !important;
   border-radius: 0 4px 4px 0 !important;
+  transition: max-height 0.3s ease, opacity 0.3s ease !important;
 }
 
 .mobile_menu .mobile_menu_nav li.active-child > .child_menu {
   display: flex !important;
+  height: auto !important;
+  max-height: 600px !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  overflow: visible !important;
+  padding: 6px 0 !important;
+  margin: 4px 0 10px 22px !important;
+}
+
+.mobile_menu .mobile_menu_nav .child_menu li {
+  display: block !important;
+  width: 100% !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04) !important;
+}
+
+.mobile_menu .mobile_menu_nav .child_menu li:last-child {
+  border-bottom: none !important;
 }
 
 .mobile_menu .mobile_menu_nav .child_menu a {
-  font-size: 0.78rem !important;
-  color: #AAAAAA !important;
-  padding: 9px 18px !important;
+  display: flex !important;
+  width: 100% !important;
+  font-size: 0.82rem !important;
+  color: #B8B8B8 !important;
+  padding: 11px 18px !important;
   text-transform: uppercase !important;
   font-weight: 500 !important;
+  letter-spacing: 0.04em !important;
   background: transparent !important;
+  box-sizing: border-box !important;
+  transition: all 0.2s ease !important;
 }
 
-.mobile_menu .mobile_menu_nav .child_menu a:hover {
+.mobile_menu .mobile_menu_nav .child_menu a:hover,
+.mobile_menu .mobile_menu_nav .child_menu a:active {
   color: #EFBF04 !important;
-  background: rgba(239, 191, 4, 0.06) !important;
-  padding-left: 22px !important;
+  background: rgba(239, 191, 4, 0.08) !important;
+  padding-left: 24px !important;
 }
 
 /* Drawer Footer CTA */
