@@ -237,10 +237,13 @@ body.is-home-page header.navigation.is-stage3-active {
 body.is-home-page .site-header:not(.is-stage3-active),
 body.is-home-page header.navigation:not(.is-stage3-active),
 body.is-home-page .site-header:not(.is-stage3-active) .bdx_nav,
-body.is-home-page header.navigation:not(.is-stage3-active) .bdx_nav {
+body.is-home-page header.navigation:not(.is-stage3-active) .bdx_nav,
+body.is-home-page .site-header:not(.is-stage3-active) .mobile_menu_container,
+body.is-home-page .site-header:not(.is-stage3-active) .mobile_menu_toggle {
   opacity: 0 !important;
   visibility: hidden !important;
   pointer-events: none !important;
+  display: none !important;
 }
 
 /* ── ALL Inner Pages: Sleek Fixed Top Header with Dark Theme Background & Top-Right Nav ── */
@@ -303,13 +306,42 @@ header.navigation .container-fluid {
 
 /* ── Mobile Navigation (<992px): Hide desktop pill nav & style sleek side drawer ── */
 @media (max-width: 991px) {
-  #site-header,
-  .site-header,
-  header.navigation {
+  /* Inner pages: Always show header and mobile nav button */
+  body:not(.is-home-page) #site-header,
+  body:not(.is-home-page) .site-header,
+  body:not(.is-home-page) header.navigation {
     opacity: 1 !important;
     pointer-events: auto !important;
     visibility: visible !important;
     transform: none !important;
+  }
+
+  /* Home page Stage 01 & Stage 02: Keep header & mobile nav button 100% HIDDEN */
+  body.is-home-page .site-header:not(.is-stage3-active),
+  body.is-home-page header.navigation:not(.is-stage3-active),
+  body.is-home-page .site-header:not(.is-stage3-active) .mobile_menu_container,
+  body.is-home-page .site-header:not(.is-stage3-active) .mobile_menu_toggle {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    display: none !important;
+  }
+
+  /* Home page Stage 03 (scrolled): Reveal header & mobile nav button */
+  body.is-home-page .site-header.is-stage3-active,
+  body.is-home-page header.navigation.is-stage3-active {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    visibility: visible !important;
+    transform: none !important;
+  }
+
+  body.is-home-page .site-header.is-stage3-active .mobile_menu_container,
+  body.is-home-page .site-header.is-stage3-active .mobile_menu_toggle {
+    display: flex !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
   }
 
   .site-header .bdx_nav,
