@@ -191,8 +191,44 @@ function initPageAnimations() {
  */
 function initMobileNav() {
   const toggleBtns = document.querySelectorAll('#mobile-toggle, .mobile_menu_toggle');
-  const mobileMenu = document.querySelector('.mobile_menu');
-  if (!toggleBtns.length || !mobileMenu) return;
+  let mobileMenu = document.querySelector('.mobile_menu');
+
+  if (!mobileMenu) return;
+
+  // Auto-populate mobile_menu if empty
+  if (!mobileMenu.querySelector('a')) {
+    mobileMenu.innerHTML = `
+      <ul class="mobile_menu_nav list-unstyled mb-0">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li class="has_child">
+          <a href="#">Our Companies</a>
+          <ul class="child_menu">
+            <li><a href="stalwart-global.html">Stalwart Global</a></li>
+            <li><a href="stalwart-resources.html">Stalwart Resources</a></li>
+            <li><a href="stalwart-life-sciences.html">Stalwart Life Sciences</a></li>
+            <li><a href="indian-tadka.html">Indian Tadka</a></li>
+          </ul>
+        </li>
+        <li class="has_child">
+          <a href="#">Capabilities</a>
+          <ul class="child_menu">
+            <li><a href="capabilities.html#sourcing">Global Sourcing</a></li>
+            <li><a href="capabilities.html#trade">International Trade</a></li>
+            <li><a href="capabilities.html#supply-chain">Supply Chain</a></li>
+            <li><a href="capabilities.html#logistics">Logistics Coordination</a></li>
+            <li><a href="capabilities.html#distribution">Wholesale & Distribution</a></li>
+            <li><a href="capabilities.html#hospitality">Hospitality Operations</a></li>
+            <li><a href="capabilities.html#market-dev">Market Development</a></li>
+          </ul>
+        </li>
+        <li><a href="global-presence.html">Global Presence</a></li>
+        <li><a href="partner.html">Partner With Us</a></li>
+      </ul>
+    `;
+  }
+
+  if (!toggleBtns.length) return;
 
   function toggleMenu(show) {
     const isShowing = typeof show === 'boolean' ? show : !mobileMenu.classList.contains('is-open');
@@ -215,7 +251,20 @@ function initMobileNav() {
     });
   });
 
-  // Close menu when clicking outside on backdrop
+  // Toggle child submenus on mobile accordion tap
+  const hasChildLinks = mobileMenu.querySelectorAll('.has_child > a');
+  hasChildLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      const parent = link.closest('.has_child');
+      if (parent) {
+        e.preventDefault();
+        e.stopPropagation();
+        parent.classList.toggle('active-child');
+      }
+    });
+  });
+
+  // Close menu when clicking backdrop overlay
   document.addEventListener('click', (e) => {
     if (mobileMenu.classList.contains('is-open')) {
       let isClickInside = false;
@@ -228,11 +277,10 @@ function initMobileNav() {
     }
   });
 
-  // Close menu when clicking navigation links inside side drawer
-  const navLinks = mobileMenu.querySelectorAll('a');
+  // Close menu when clicking navigation links inside drawer
+  const navLinks = mobileMenu.querySelectorAll('a:not(.has_child > a)');
   navLinks.forEach(link => {
     link.addEventListener('click', (e) => {
-      // If it's a anchor link or direct page navigation, close side drawer
       const href = link.getAttribute('href');
       if (href && href !== '#') {
         toggleMenu(false);
